@@ -1,0 +1,47 @@
+<div class="page_bg_block p68">
+  <div class="container p16">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        {% if section.settings.image1 != blank and section.settings.image-link != blank %}
+          <a href="{{ section.settings.image-link }}" style="font-size: 0; line-height: 0; display: block;"><img src="{{ section.settings.image1 | img_url: "master" }}"></a>
+        {% else %}
+          {% if section.settings.image1 != blank %}
+            <img src="{{ section.settings.image1 | img_url: "master" }}">
+            {% endif %}
+        {% endif %}
+      </div>
+      <div class="col-md-6 order-md-first ">
+        {% if section.settings.text1 != blank  %}
+          <div class="page_bg_block_text p42">
+            {{ section.settings.text1 }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Page",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+
+      {
+        "type": "image_picker",
+        "id": "image1",
+        "label": "Image"
+      },
+      {
+        "type": "url",
+        "id": "image-link",
+        "label": "Image link"
+      },
+      {
+        "type": "html",
+        "id": "text1",
+        "label": "Text"
+      }
+    ]
+  }
+{% endschema %}

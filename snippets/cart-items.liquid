@@ -1,0 +1,100 @@
+{%- assign for_drawer = true -%}
+{% assign type_cart = 'drawer' %}
+{%- if template == 'cart' or template == 'cart.ajax' -%}
+  {%- assign for_drawer = false -%}
+  {% assign type_cart = 'ajax' %}
+{%- endif -%}
+
+<div class="Cart__ItemList"> 
+  {%- for line_item in cart.items -%}
+    {%- if for_drawer -%}
+      <div class="CartItemWrapper">
+    {%- endif -%} 
+         
+    <div class="CartItem {% if for_drawer %}forDrawer{% endif %}">
+      
+   {% if for_drawer %}   <div class="CartItemIns">{% endif %}
+      <div class="CartItem__ImageWrapper "> 
+          <img loading="lazy" class="CartItem__Image {{ class }}" src="{{ line_item.image | img_url: '240x' }}" alt="{{ line_item.image.alt | escape }}">
+      </div>
+{% if for_drawer %} <div class="CartItemWrapper_Dann">{% endif %}
+      <div class="CartItem__Info">
+        <div class="h5 CartItem__Title m0">
+          <a href="{{ line_item.url }}">{{ line_item.product.title }}</a>
+        </div>
+
+        
+        <div class="CartItem__Meta">
+          {%- unless line_item.product.has_only_default_variant -%}
+            <p class="CartItem__Variant f_s_small "> 
+              {% if line_item.variant.option1 != null %}
+              	{{ line_item.variant.option1 }}
+              {% endif %}
+              {% if line_item.variant.option2 != null %}
+              	| {{ line_item.variant.option2 }}
+              {% endif %}
+              {% if line_item.variant.option3 != null %}
+              	| {{ line_item.variant.option3 }}
+              {% endif %}
+               </p>
+           
+          {%- endunless -%} 
+          <div class="CartItem__PriceList pt10"> 
+              <span class="CartItem__Price h6 m0">{{ line_item.final_price | money_without_trailing_zeros }}</span>
+          </div>
+        </div>
+
+        {%- capture item_actions -%}
+          <div class="CartItem__Actions row align-items-center pt10" >
+            <div class="col"> 
+              <div class="QuantitySelector">
+                {%- assign quantity_minus_one = line_item.quantity | minus: 1 -%}
+                {% assign id_item = line_item.key | replace: ":", "_"  %}
+                <a class="mini-cart__quantityselector_button" href="#" onclick="cngMiniCartQuantity({{ quantity_minus_one }},'{{ line_item.key }}','{{ id_item }}','{{ type_cart }}'); return false;">
+                    <i class="fal fa-minus"></i>
+                </a>
+                <input type="text" onchange="cngMiniCartVal('{{ line_item.key }}','{{ id_item }}','{{ type_cart }}'); return false;" name="updates[]" id="updates_{{ id_item }}"  pattern="[0-9]*" data-line-id="{{ line_item.key }}" value="{{ line_item.quantity }}">
+                {%- assign quantity_plus_one = line_item.quantity | plus: 1 -%}
+                <a class="mini-cart__quantityselector_button" href="#"  onclick="cngMiniCartQuantity({{ quantity_plus_one }},'{{ line_item.key }}','{{ id_item }}','{{ type_cart }}'); return false;">
+                    <i class="fal fa-plus"></i>
+                </a> 
+            </div>
+          </div>
+          <div class="col-auto lh0">
+            <a href="#" class="CartItem__Remove"   onclick="delMiniCartVal('{{ line_item.key }}','{{ type_cart }}'); return false;">{% render 'icon-remove' %}</a>
+          </div> 
+          </div>
+         
+         
+        
+        {%- endcapture -%}  
+        
+        
+        
+        
+      </div> 
+      {{ item_actions }} 
+ 
+        {% if for_drawer %} </div>{% endif %}
+  {% if for_drawer %} </div>{% endif %}
+      {%- if for_drawer == false -%}
+      <div class="cart_full_item_price">
+         
+          {%- if line_item.original_line_price != line_item.final_line_price -%}
+            <span class="CartItem__Price Price Price--highlight">{{ line_item.final_line_price | money_without_trailing_zeros }}</span>
+            <span class="CartItem__Price Price Price--compareAt">{{ line_item.original_line_price | money_without_trailing_zeros }}</span>
+          {%- else -%}
+            <span class="CartItem__Price Price">{{ line_item.final_line_price | money_without_trailing_zeros }}</span>
+          {%- endif -%}
+      </div>
+       {% endif %}
+       
+      
+      </div>
+    {%- if for_drawer -%}
+      
+        
+       </div>
+    {%- endif -%}
+  {%- endfor -%}
+</div>

@@ -1,0 +1,20 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-list-collections",
+      "settings": {
+        "title": "Collections",
+        "products_per_page": 6,
+        "sort": "alphabetical",
+        "image_ratio": "adapt",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "bg_color": "rgba(0,0,0,0)",
+        "sect_class": ""
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

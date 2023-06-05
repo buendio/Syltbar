@@ -1,0 +1,87 @@
+<div class="page_faq p110">
+  <div class="container">
+    {% if  section.settings.title != blank %}
+      <h1 class="pb68">{{ section.settings.title }}
+      </h1>
+    {% endif %}
+    <div class="row">
+      <div class="col-lg-3 col-md-4">
+        <ul class="faq_titles">
+          {% assign count = 1 %}
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'header' %}
+                <li id="item_li_{{ count }}" class="h5 caps {% if count == 1 %}active{% endif %}" onclick="show_faq_items({{ count }})">{{ block.settings.title }}
+                </li>
+                {% assign count = count | plus : 1 %}
+            {% endcase %}
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="col-lg-9 col-md-8">
+        {% assign count = 1 %}
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'header' %}
+              <div id="item_{{ count }}" class="h3 color_gold {% if count > 1 %}pt68{% endif %} {% if count == 1 %}mt0{% endif %}">{{ block.settings.title }}
+              </div>
+              {% assign count = count | plus : 1 %}
+            {% when 'item' %}
+              <div class="faq_block_item">
+                <div class="item_title caps h5 m0">
+                  {{ block.settings.title }}
+                  <i class="fal fa-plus"></i>
+                </div>
+                <div class="item_text m0">
+                  {{ block.settings.text }}
+                </div>
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Page",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "header",
+        "name": "Header",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Header"
+          }
+        ]
+      }, {
+        "type": "item",
+        "name": "Item",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          }, {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

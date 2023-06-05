@@ -1,0 +1,26 @@
+<ul class="profilelink">
+    <li class="mb10"> 
+        <a href="{{ routes.account_url }}" 
+            class="{% if request.path == '/account' %} btn_link {% endif %}
+               ">
+            <span>{{ 'customer.account.details' | t }}</span>
+        </a>
+    </li>
+ 
+    
+    <li class="mb10">
+        <a href="{{ routes.account_addresses_url }}" 
+            class="{% if request.path == '/account/addresses' %} btn_link {% endif %}
+             ">
+            <span>{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }}) </span>
+        </a>
+    </li>
+     
+    <li>
+        <a href="{{ routes.account_logout_url }}" 
+          class="btn" >
+            <span>{{ 'customer.account.logout' | t }} </span>   <i class="fa fa-angle-right"></i>
+        </a>
+    </li>
+
+</ul>

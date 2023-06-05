@@ -1,0 +1,222 @@
+
+{{ 'newsletter-section.css' | asset_url | stylesheet_tag }}
+ 
+
+<div class="newsletter p68 center ">
+    <div class="newsletter-wrap">
+      <div class="newsletter-wrap_icons">
+         {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'icons' -%}
+           <div class="newsletter-icons">
+             {% if block.settings.icons_heading != blank %}  <h2 class="newsletter-heading h2">{{ block.settings.icons_heading | escape }}</h2> {% endif %}
+               <div class="newsletter-icons_wrap">
+                 <div class="newsletter-icons_wrap-ins">
+                   {% if block.settings.icon != blank %}
+                     <div class="newsletter-icons_wrap-ins_icon">
+                       <img src="{{ block.settings.icon | img_url: "medium" }}">
+                     </div>  
+                   {% endif %}
+                   {% if block.settings.icon_subheading != blank %}
+                     <div class="newsletter-icons_wrap-ins_subheading">
+                       {{ block.settings.icon_subheading }}
+                     </div>  
+                   {% endif %}
+                 </div> 
+                 <div class="newsletter-icons_wrap-ins">
+                   {% if block.settings.icon2 != blank %}
+                     <div class="newsletter-icons_wrap-ins_icon">
+                       <img src="{{ block.settings.icon2 | img_url: "medium" }}">
+                     </div>  
+                   {% endif %}
+                   {% if block.settings.icon_subheading2 != blank %}
+                     <div class="newsletter-icons_wrap-ins_subheading">
+                       {{ block.settings.icon_subheading2 }}
+                     </div>  
+                   {% endif %}
+                 </div>  
+                 <div class="newsletter-icons_wrap-ins">
+                   {% if block.settings.icon3 != blank %}
+                     <div class="newsletter-icons_wrap-ins_icon">
+                       <img src="{{ block.settings.icon3 | img_url: "medium" }}">
+                     </div>  
+                   {% endif %}
+                   {% if block.settings.icon_subheading3 != blank %}
+                     <div class="newsletter-icons_wrap-ins_subheading">
+                       {{ block.settings.icon_subheading3 }}
+                     </div>  
+                   {% endif %}
+                 </div>  
+               </div>
+           </div>  
+        
+         {%- endcase -%}
+    {%- endfor -%}
+      </div>  
+      <div class="newsletter-wrap_form">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when '@app' -%}
+          {% render block %}
+        {%- when 'heading' -%}
+          <h2 class="h2 newsletter-heading pb16">{{ block.settings.heading | escape }}</h2>
+        {%- when 'paragraph' -%}
+          <div class="newsletter__subheading rte" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+        {%- when 'email_form' -%}
+          <div {{ block.shopify_attributes }}>
+            {% form 'customer', class: 'newsletter-form pt26' %}
+              <input type="hidden" name="contact[tags]" value="newsletter">
+              <div class="newsletter-form__field-wrapper">
+                <div class="field">
+                  <input
+                    id="NewsletterForm--{{ section.id }}"
+                    type="email"
+                    name="contact[email]"
+                    class="field__input"
+                    value="{{ form.email }}"
+                    aria-required="true"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    autocomplete="email"
+                    {% if form.errors %}
+                      autofocus
+                      aria-invalid="true"
+                      aria-describedby="Newsletter-error--{{ section.id }}"
+                    {% elsif form.posted_successfully? %}
+                      aria-describedby="Newsletter-success--{{ section.id }}"
+                    {% endif %}
+                    placeholder="Your email address*"
+                    required
+                  >
+                  <button type="submit" class="button_arrow" name="commit" id="Subscribe" aria-label="{{ 'newsletter.button_label' | t }}">
+                    submit
+                    <div class="arrow">
+                      <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.5 8C0.846821 7.27066 1.18208 6.63248 1.50578 6.08547C1.8526 5.53846 2.18786 5.08262 2.51156 4.71795L2.51153 3.69231L2.51156 3.28205C2.18786 2.89459 1.8526 2.42735 1.50578 1.88034C1.18208 1.33333 0.846821 0.706552 0.5 0H1.71387C3.17052 1.66382 4.69653 2.89459 6.29191 3.69231V4.30769C4.69653 5.08262 3.17052 6.31339 1.71387 8H0.5Z" fill="#A4915C"/>
+                        </svg>                        
+                    </div>
+                  </button>
+                </div>
+                {%- if form.errors -%}
+                  <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">{% render 'icon-error' %}{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</small>
+                {%- endif -%}
+              </div>
+              {%- if form.posted_successfully? -%}
+                <h4 class="newsletter-form__message newsletter-form__message--success form__message" id="Newsletter-success--{{ section.id }}" tabindex="-1" autofocus>{% render 'icon-success' %}{{ 'newsletter.success' | t }}</h4>
+              {%- endif -%}
+            {% endform %}
+          </div>
+      {%- endcase -%}
+    {%- endfor -%}
+    </div>
+     </div>
+
+</div>
+{% stylesheet %} 
+    #shopify-section-newsletter {
+    display: block;
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.newsletter.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [ 
+  ],
+  "blocks": [
+    {
+      "type": "icons",
+      "name": "Icons",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icons_heading",
+          "label": "Heading"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon", 
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "icon_subheading",
+          "label": "Subheading"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon2", 
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "icon_subheading2",
+          "label": "Subheading"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon3", 
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "icon_subheading3",
+          "label": "Subheading"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "name": "t:sections.newsletter.blocks.heading.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Subscribe to our emails",
+          "label": "t:sections.newsletter.blocks.heading.settings.heading.label"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "name": "t:sections.newsletter.blocks.paragraph.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Be the first to know about new collections and exclusive offers.</p>",
+          "label": "t:sections.newsletter.blocks.paragraph.settings.paragraph.label"
+        }
+      ]
+    },
+    {
+      "type": "email_form",
+      "name": "t:sections.newsletter.blocks.email_form.name",
+      "limit": 1
+    },
+    {
+      "type": "@app"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.newsletter.presets.name",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "paragraph"
+        },
+        {
+          "type": "email_form"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

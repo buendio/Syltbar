@@ -1,0 +1,201 @@
+{% if section.settings.padding_top != 0 or section.settings.padding_bottom != 0 or section.settings.bg_color != 'rgba(0,0,0,0)' %}
+  {%- style -%} 
+      .section-{{ section.id }} {
+        {% if section.settings.bg_color != 'rgba(0,0,0,0)' %}
+          background-color:{{section.settings.bg_color}};
+        {% endif %}
+        {% if section.settings.padding_top != 0 %}
+          padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+        {% endif %}
+        {% if section.settings.padding_bottom != 0 %}
+          padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+        {% endif %}
+      }
+      @media screen and (min-width: 750px) {
+        .section-{{ section.id }} {
+          {% if section.settings.padding_top != 0 %}
+            padding-top: {{ section.settings.padding_top }}px;
+          {% endif %}
+          {% if section.settings.padding_bottom != 0 %}
+            padding-bottom: {{ section.settings.padding_bottom }}px;
+          {% endif %}
+        }
+      }
+  {%- endstyle -%}
+{% endif %}
+
+{%- liquid
+  assign posts_displayed = section.settings.blog.articles_count
+  if section.settings.post_limit <= section.settings.blog.articles_count
+    assign posts_exceed_limit = true
+    assign posts_displayed = section.settings.post_limit
+  endif
+-%}
+<div class="blog p42 {% if section.settings.heading == blank %} no-heading{% endif %} section-{{ section.id }} {{section.settings.sect_class}}">
+  <div class="container">
+    <div class="title-wrapper-with-link{% if section.settings.heading == blank %} title-wrapper-with-link--no-heading{% endif %} ">
+      <h2 class="blog__title mb42 center">{{ section.settings.heading | escape }}</h2>
+
+      {%- if section.settings.blog != blank and section.settings.show_view_all and section.settings.post_limit < section.settings.blog.articles_count -%}
+        <a href="{{ section.settings.blog.url }}"
+          class="link underlined-link large-up-hide"
+        >
+          {{ 'sections.featured_blog.view_all' | t }}
+        </a>
+      {%- endif -%}
+    </div>
+    {%- if section.settings.blog != blank and section.settings.blog.articles_count > 0 -%}
+      
+        <div
+          class="blog__posts articles-wrapper grid row"
+        >
+          {%- for article in section.settings.blog.articles limit: section.settings.post_limit -%}
+            <div class="blog__post grid__item article col-md-{{section.settings.card_format}} mb26">
+              {% render 'article-card', blog: section.settings.blog, article: article, media_aspect_ratio: 1.66, show_image: section.settings.show_image, show_date: section.settings.show_date, show_author: section.settings.show_author, show_excerpt: true %}
+            </div>
+          {%- endfor -%}
+        </div>
+
+     
+
+      {%- if section.settings.show_view_all and section.settings.post_limit < section.settings.blog.articles_count -%}
+        <div class="blog__view-all center small-hide medium-hide mt26">
+          <a href="{{ section.settings.blog.url }}" class="blog__button btn">
+            {{ 'sections.featured_blog.view_all' | t }}
+          </a>
+        </div>
+      {%- endif -%}
+    {%- else -%}
+      <div class="blog-placeholder">
+        <div class="placeholder media media--landscape">
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        </div>
+        <div class="blog-placeholder__content">
+          <h2>
+            {{ 'sections.featured_blog.onboarding_title' | t }}
+          </h2>
+          <p class="rte-width">
+            {{ 'sections.featured_blog.onboarding_content' | t }}
+          </p>
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.featured-blog.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Blog posts",
+      "label": "t:sections.featured-blog.settings.heading.label"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "t:sections.featured-blog.settings.blog.label"
+    },
+    {
+      "type": "range",
+      "id": "post_limit",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 3,
+      "label": "t:sections.featured-blog.settings.post_limit.label"
+    },
+    {
+      "type": "select",
+      "id": "card_format",
+      "label": "t:sections.featured-blog.settings.card_format.label",
+      "options": [
+        {
+          "value": "3",
+          "label": "4"
+        },
+        {
+          "value": "4",
+          "label": "3"
+        },
+        {
+          "value": "6",
+          "label": "2"
+        }
+      ],
+      "default": "4"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image",
+      "default": true,
+      "label": "t:sections.featured-blog.settings.show_image.label",
+      "info": "t:sections.featured-blog.settings.show_image.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "default": true,
+      "label": "t:sections.featured-blog.settings.show_date.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "default": false,
+      "label": "t:sections.featured-blog.settings.show_author.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "default": true,
+      "label": "t:sections.featured-blog.settings.show_view_all.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.section_head"
+    }, 
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "t:sections.all.bg_color"
+    },
+    {
+      "type": "text",
+      "id": "sect_class",
+      "label": "t:sections.all.sect_class"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.featured-blog.presets.name",
+      "settings": {
+        "blog": "News"
+      }
+    }
+  ]
+}
+{% endschema %}

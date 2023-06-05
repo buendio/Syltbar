@@ -1,0 +1,86 @@
+{{ 'section-bannerimage.css' | asset_url | stylesheet_tag }} 
+ <div class="bannerimage-slider  swiper">
+      <div class="swiper-wrapper">
+ {% for block in section.blocks %}
+  <div class="image-btn-wrapper  item swiper-slide  section-{{ section.id }} ">  
+    <div class="container height_100 image-wrap">
+      <div class="row height_100 align-items-end pb16">
+        <div class="col-md info pb68 ">
+          {% if block.settings.title != blank %}<div class="h1 color-white">{{ block.settings.title }}</div>{% endif %}
+          {% if block.settings.smalltitle != blank %}<div class="h2 mb0 pt10 color-white">{{ block.settings.smalltitle }}</div>{% endif %}
+        </div>
+        <div class="col-md-auto image-btn-wrapper__links pb68 ">
+          {% if block.settings.btnname != blank %}<a href="{{ block.settings.urlbanner }}" class="button_arrow_border button_arrow_border_white">{% include "button_arrow", title: block.settings.btnname %}</a>{% endif %}
+        </div>
+      </div> 
+    </div> 
+    
+      {% if block.settings.imagebanner != blank %}
+      <img src="{{ block.settings.imagebanner | img_url: "master" }}" class="desctop">
+      {% endif %}
+      {% assign mob = block.settings.imagebanner %}
+      {% if block.settings.imagebanner_mobile != blank %}
+          {% assign mob = block.settings.imagebanner_mobile %}
+      {% endif %}
+      <img src="{{ mob | img_url: "master" }}" class="mobile"> 
+
+      
+  </div>
+
+     
+     {% endfor %}
+</div>
+      <div class="swiper-slider-pagination swiper-pagination swiper-pagination-reviews"></div>
+      </div>
+{% schema %}
+  {
+  "name": "t:sections.section-bannerimage.name",
+  "tag": "section",
+  "class": "banner-image",
+    "settings": [],
+    "blocks": [
+    {
+      "type": "item",
+      "name": "Item", 
+      "settings": [
+    {
+      "type": "image_picker",
+      "id": "imagebanner",
+      "label": "t:sections.section-bannerimage.settings.imagebanner.label"
+    },  
+    {
+      "type": "image_picker",
+      "id": "imagebanner_mobile",
+      "label": "Image mobile"
+    },        
+	 {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.section-bannerimage.settings.title.label"
+    },
+	 {
+      "type": "text",
+      "id": "smalltitle",
+      "label": "t:sections.section-bannerimage.settings.smalltitle.label"
+    },    
+    {
+      "type": "url",
+      "id": "urlbanner",
+      "label": "t:sections.section-bannerimage.settings.urlbanner.label"
+    },
+    {
+      "type": "text",
+      "id": "btnname",
+      "label": "t:sections.section-bannerimage.settings.btnname.label"
+    } 
+      ]
+        }
+	],
+	"presets": [
+    {
+      "name": "t:sections.section-bannerimage.name",
+      "category": "image"
+    }
+  ]
+  }
+{% endschema %} 

@@ -1,0 +1,41 @@
+{{ 'compare-sugar.css' | asset_url | stylesheet_tag }}
+
+
+<img src="{{ section.settings.image_desk | img_url: "master" }}"  class="banner center" >
+<img src="{{ section.settings.image_mob | img_url: "master" }}"  class="mobile-banner">
+<div class="container">
+  <header class="PageHeader">
+    <div class="SectionHeader SectionHeader--center">
+      <h1 class="SectionHeader__Heading Heading u-h1">{{ page.title }}</h1>
+    </div>
+  </header>
+ <h5 class="page-subheading" style="text-align: center;">{{ section.settings.text }}</h5>
+</div>
+{% schema %}
+  {
+    "name": "Compare sugar banner",
+    "settings": [
+      {
+            "type": "image_picker",
+            "id": "image_desk",
+            "label": "Image desktop"
+      },
+      {
+            "type": "image_picker",
+            "id": "image_mob",
+            "label": "Image mobile"
+      },
+      {
+            "type": "text",
+            "id": "text",
+            "label": "Text"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,151 @@
+
+<link rel="stylesheet" href="{{ 'section-product-recommendations.css' | asset_url }}" media="print" onload="this.media='all'">
+ 
+
+<div class="recommendations-wrp p110  section-{{ section.id }} ">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg">
+          {% if section.settings.heading != blank %}
+          <h2>{{ section.settings.heading }}</h2>
+          {% endif %}
+      </div>
+      <div class="col-lg-auto"> 
+          {% if section.settings.url != blank %}
+          <a href="{{ section.settings.url }}" class="button_arrow">
+              {{ section.settings.urltitle }}
+              <div class="arrow">
+                  <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.5 8C0.846821 7.27066 1.18208 6.63248 1.50578 6.08547C1.8526 5.53846 2.18786 5.08262 2.51156 4.71795L2.51153 3.69231L2.51156 3.28205C2.18786 2.89459 1.8526 2.42735 1.50578 1.88034C1.18208 1.33333 0.846821 0.706552 0.5 0H1.71387C3.17052 1.66382 4.69653 2.89459 6.29191 3.69231V4.30769C4.69653 5.08262 3.17052 6.31339 1.71387 8H0.5Z" fill="#A4915C"/>
+                    </svg>                        
+                </div>
+            </a>
+          {% endif %}
+      </div>
+  </div>
+
+    <product-recommendations class="product-recommendations " data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=3">
+      {% if recommendations.performed and recommendations.products_count > 0 %}
+      <div class="product-recommendations-slider swiper pt48">
+        <div class="swiper-wrapper"> 
+          {% for recommendation in recommendations.products %}
+          <div class="swiper-slide grid__item"> 
+            {% render 'card-product',
+            card_product: recommendation,
+            show_secondary_image: section.settings.show_secondary_image 
+          %}
+        </div>
+          {% endfor %}
+        </div> 
+      </div>
+      {% endif %}
+    </product-recommendations>
+  </div>
+</div>
+ 
+<script>
+  class ProductRecommendations extends HTMLElement {
+    constructor() {
+      super();
+
+      const handleIntersection = (entries, observer) => {
+        if (!entries[0].isIntersecting) return;
+        observer.unobserve(this);
+
+        fetch(this.dataset.url)
+          .then(response => response.text())
+          .then(text => {
+            const html = document.createElement('div');
+            html.innerHTML = text;
+            const recommendations = html.querySelector('product-recommendations');
+
+            if (recommendations && recommendations.innerHTML.trim().length) {
+              this.innerHTML = recommendations.innerHTML;
+            }
+
+            if (html.querySelector('.grid__item')) {
+              this.classList.add('product-recommendations--loaded');
+              var recommendationsblock = new Swiper(".product-recommendations-slider", {  
+                spaceBetween: 24, 
+                slidesPerView: 3,
+                watchOverflow: true, 
+                freeMode: true,
+                centerInsufficientSlides: true,
+                passiveListeners: false,
+                preventClicks: false, 
+                breakpoints: { 
+                  320: {
+                    slidesPerView: 1.4
+                   },
+                   576: {
+                    slidesPerView: 2
+                   },
+                   991: {
+                    slidesPerView: 3
+                   },
+                   1200: {
+                     grabCursor: false,
+                     allowTouchMove: false
+                   }
+                } 
+            }); 
+            }
+          })
+          .catch(e => {
+            console.error(e);
+          });
+      }
+
+      new IntersectionObserver(handleIntersection.bind(this), {rootMargin: '0px 0px 200px 0px'}).observe(this);
+    }
+  }
+
+  customElements.define('product-recommendations', ProductRecommendations);
+  </script>
+
+{% schema %}
+{
+  "name": "t:sections.product-recommendations.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.product-recommendations.settings.paragraph__1.content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "You may also like",
+      "label": "t:sections.product-recommendations.settings.heading.label"
+    }, 
+  {
+    "type": "url",
+    "id": "url", 
+    "label": "t:sections.section-bannerimage.settings.urlbanner.label"
+  },
+  {
+    "type": "text",
+    "id": "urltitle", 
+    "label": "t:sections.section-bannerimage.settings.btnname.label"
+  },
+    {
+      "type": "header",
+      "content": "t:sections.product-recommendations.settings.header__2.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": false,
+      "label": "t:sections.product-recommendations.settings.show_secondary_image.label"
+    } 
+  ],
+  	"presets": [
+    {
+      "name": "t:sections.product-recommendations.name",
+      "category": "Product"
+      
+    }
+    ]
+}
+{% endschema %}

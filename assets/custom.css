@@ -1,0 +1,111 @@
+.color2{
+  color:var(--brand-color-2);
+}
+.color3{
+  color:var(--brand-color-3);
+}
+/******Customize css rechargea*********/
+.rc-radio.rc-radio--active, .rc-template__radio .rc-selling-plans{
+  background-color:#fff!important;
+}
+.rc-radio__label{
+  color:var(--brand-color-1)!important;
+}
+.rc-template__radio .rc-selling-plans{
+  padding-left:0!important;
+}
+.rc-template__radio .rc-selling-plans-dropdown__select{
+  height:43px!important;
+  line-height: 41px!important;
+}
+.rc-widget label.rc-radio{
+  position:relative;
+  padding-left:21px!important;
+}
+.rc-widget label.rc-radio:before{
+  position:absolute;
+  content:'';
+  left:0;
+  top:13px;
+  width:20px;
+  height:20px;
+  border:1px solid var(--brand-color-2);
+  border-radius:50%;
+}
+.rc-radio .rc-radio__input {
+  display:none;
+}
+.rc-widget label.rc-radio.rc-radio--active:after{
+  position:absolute;
+  content:'';
+  left: 2px;
+    top: 15px;
+    width: 16px;
+    height: 16px;
+  background-color:var(--brand-color-2);
+  border-radius:50%;
+}
+/**********Age buttons*********/
+.age-btns{
+  display:flex;
+  justify-content:space-between;
+}
+.age-btns button{
+  margin:0;
+  width:145px;
+}
+.age-btns .button-enter{
+  background-color:#000;
+  border: 1px solid #000;
+}
+
+.age-btns .button-enter:hover {
+  background-color:#fff;
+  border: 1px solid #000;
+  color: #000;
+}
+.age-btns .button-exit{
+  border-color:#fff!important;
+}
+.size-correct{
+  font-size: 14px!important;
+color:#000!important;
+}
+@media(max-width:375px){
+.age-btns button{
+  width:120px;
+}
+}
+
+.tax-note.caption-large {
+  font-size: 16px;
+}
+.product-form .gift-code-text{
+  color: var(--brand-color-2);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+/*******Product gallery thumbnail*************/
+.product-imageslide img{
+  width:100%;
+}
+.product-imageslide video{
+  position: absolute;
+    left: 0;
+    top: 0;
+}
+deferred-media.media{
+  display:block;
+height: 100%;
+}
+deferred-media.media iframe{
+  background-color:#fff;
+}
+/********Form clavio select**************/
+#downshift-0-menu{
+  max-height:400px!important;
+}
+
+#shopify-section-newsletter, #shopify-section-footer {
+     display: block!important; 
+}

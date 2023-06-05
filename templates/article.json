@@ -1,0 +1,48 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-article",
+      "blocks": {
+        "51b51fd3-0f63-4dbc-afd5-9d50889004b0": {
+          "type": "featured_image",
+          "settings": {
+            "image_height": "medium"
+          }
+        },
+        "b710b09a-8937-412a-817b-b911d253a288": {
+          "type": "title",
+          "settings": {
+            "blog_show_date": true,
+            "blog_show_author": true
+          }
+        },
+        "e6f333ad-a9fe-4d4d-8e9c-702e44f1e254": {
+          "type": "content",
+          "settings": {}
+        },
+        "8e6ab1b7-aa36-46b1-9659-5d4d9cfb34a8": {
+          "type": "author",
+          "settings": {
+            "blog_show_date": true,
+            "blog_show_author": true
+          }
+        }
+      },
+      "block_order": [
+        "51b51fd3-0f63-4dbc-afd5-9d50889004b0",
+        "b710b09a-8937-412a-817b-b911d253a288",
+        "e6f333ad-a9fe-4d4d-8e9c-702e44f1e254",
+        "8e6ab1b7-aa36-46b1-9659-5d4d9cfb34a8"
+      ],
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "bg_color": "rgba(0,0,0,0)",
+        "sect_class": ""
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

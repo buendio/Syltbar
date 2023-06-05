@@ -1,0 +1,195 @@
+.predictive-search {
+  display: none;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  left: 0;
+  border: 1px solid #000000;
+  z-index: 13 !important;
+  background: #ffffff;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.predictive-search--search-template {
+  z-index: 2;
+}
+
+predictive-search[open] .predictive-search,
+predictive-search[loading] .predictive-search {
+  display: block;
+}
+
+.predictive-search__heading {
+  border-bottom: 1px solid #000000;
+  margin: 0;
+  padding: 15px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  color: #000000;
+  font-family: "FuturaPT-Medium";
+  font-weight: 500;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 1200px) {
+  .predictive-search__heading {
+    font-size: 21px;
+  }
+}
+predictive-search .spinner {
+  width: 15px;
+  height: 15px;
+  line-height: 0;
+}
+
+.predictive-search__heading .spinner {
+  margin: 0 2px 0 20px;
+}
+
+predictive-search:not([loading]) .predictive-search__heading .spinner,
+predictive-search:not([loading]) .predictive-search__loading-state,
+predictive-search:not([loading]) .predictive-search-status__loading {
+  display: none;
+}
+
+predictive-search[loading] .predictive-search__loading-state {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+predictive-search[loading] .predictive-search__heading ~ .predictive-search__loading-state,
+predictive-search[loading] .predictive-search__results-list:first-child {
+  display: none;
+}
+
+.predictive-search__list-item[aria-selected=true] .predictive-search__item-heading,
+.predictive-search__list-item:hover .predictive-search__item-heading {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.predictive-search__item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 5px 15px;
+  text-align: left;
+  text-decoration: none;
+  width: 100%;
+}
+
+.predictive-search__list-item:hover {
+  background-color:#dadada;
+}  
+
+.predictive-search .price {
+  font-size: 16px;
+}
+
+.predictive-search__item-content {
+  grid-area: product-content;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.predictive-search__item-content--centered {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.predictive-search__item-heading {
+  margin: 0;
+}
+
+.predictive-search .price {
+  margin-top: 10px;
+}
+.predictive-search .price .price__regular {
+  display: none;
+}
+
+.predictive-search__item--term {
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  word-break: break-all;
+  background: #A4915C;
+  border: 1px solid #A4915C;
+  color: #ffffff;
+  margin: 0;
+  padding: 10px 15px;
+}
+
+.predictive-search__item--term svg {
+  width: 20px;
+  height: auto;
+}
+
+.predictive-search__item--term:hover, .predictive-search__item--term:focus {
+  background: #ffffff;
+  color: #A4915C;
+}
+
+.predictive-search__image {
+  -o-object-fit: contain;
+  object-fit: contain;
+  max-width: 50px;
+  height: auto;
+  margin-right: 30px;
+}
+
+.predictive-search__item-vendor {
+  display: none;
+}
+
+.template-search__search .search__input.field__input {
+  border: 1px solid var(--grey20);
+  padding: 10px;
+  width: 190px;
+}
+
+.template-search__search .search {
+  margin-left: 15px;
+}
+
+@media (max-width: 1200px) {
+  .template-search__header h1.h2 {
+    margin-top: 50px;
+  }
+}

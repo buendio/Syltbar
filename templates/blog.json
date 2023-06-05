@@ -1,0 +1,21 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-blog",
+      "settings": {
+        "post_per_page": 3,
+        "show_image": true,
+        "show_date": false,
+        "show_author": false,
+        "post_format": "3",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "bg_color": "rgba(0,0,0,0)",
+        "sect_class": ""
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

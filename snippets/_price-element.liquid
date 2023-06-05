@@ -1,0 +1,31 @@
+{% if product.available %}
+{%- liquid
+  if old_price != false
+    assign old_pice_hide = ''
+  else
+    assign old_pice_hide = 'hidden'
+  endif
+-%}
+    <div class="price__element text-gray-600 {{ class }}">
+        {% if product.compare_at_price > product.price %}
+        <div class="price__element-sale">
+            <span class="oldprice  {{old_pice_hide}}">{{ product.compare_at_price | money }}</span> 
+            <span class="curentprice h6 m0">{{ product.price | money }} </span>
+            {% comment %}{% if product.compare_at_price_max > 0 and request.page_type != 'collection' %}
+                <span class="pircendiscount color-grey60">(-{{ product.compare_at_price_max | minus:product.price | times:100 | divided_by:product.compare_at_price_max }}%)</span>
+            {% endif %}{% endcomment %}
+        </div>
+        {% elsif product.price_varies %}
+            <div class="price__element-varies h6 m0">
+            From {{ product.price_min | money }} to {{ product.price_max | money }}
+            </div>
+        {% else %}
+            <div class="price__element-normal h6 caps m0">
+                {{ product.price | money }}
+            </div>
+        {% endif %}
+    </div> 
+
+    
+
+{% endif %}

@@ -1,0 +1,10 @@
+development:
+  password: shptka_eaef0983ae69f1c376944280b3a7246d
+  theme_id: "122265600055"
+  store: syltbar.myshopify.com
+  ignore_files:
+    # - config/settings_data.json
+    # - config/settings_schema.json
+
+    # 134073516279
+   

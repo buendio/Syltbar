@@ -1,0 +1,107 @@
+{% comment %}
+  Renders a product card
+
+  Accepts:
+  - card_product: {Object} Product Liquid object (optional)
+  - media_aspect_ratio: {String} Size of the product image card. Values are "square" and "portrait". Default is "square" (optional)
+  - show_secondary_image: {Boolean} Show the secondary image on hover. Default: false (optional)
+  - show_vendor: {Boolean} Show the product vendor. Default: false
+  - show_rating: {Boolean} Show the product rating. Default: false
+  - extend_height: {Boolean} Card height extends to available container space. Default: true (optional)
+  - lazy_load: {Boolean} Image should be lazy loaded. Default: true (optional)
+
+  Usage:
+  {% render 'card-product', show_vendor: section.settings.show_vendor %}{% endcomment %}
+
+
+{%- if card_product and card_product != empty -%}
+  <div class="preview-card align-content-between" data-productid="{{card_product.selected_or_first_available_variant.id}}">
+    <div class="preview-card-wrapper ">
+
+      {%- capture product_labels -%}
+        {%- for tag in card_product.tags -%}
+          {%- if tag contains '__label' -%}
+            <span class="ProductItem__Label Heading Text--subdued">{{ tag | split: '__label:' | last }}
+            </span>
+            {%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- if card_product.available -%}
+          {%- if card_product.compare_at_price > card_product.price -%}
+            <!--  <span class="ProductItem__Label ProductItem__Label--onSale Heading Text--subdued">{{ 'product.labels.on_sale' | t }}</span>-->
+          {%- endif -%}
+        {%- else -%}
+          <span class="ProductItem__Label ProductItem__Label--soldOut Heading Text--subdued">{{ 'product.labels.sold_out' | t }}
+          </span>
+        {%- endif -%}
+      {%- endcapture -%}
+
+      {%- if product_labels != blank -%}
+        <div class="ProductItem__LabelList">
+          {{ product_labels }}
+        </div>
+      {%- endif -%}
+
+      {% if card_product.featured_media %}
+        {% assign image_class = '' %}
+        {% if card_product.media[1] != blank and show_secondary_image %}
+          {% assign image_class = image_class | append: '' %}
+        {% endif %}
+        <div class="card_image">
+          <a href="{{ card_product.url }}" class="card-medialink {% if card_product.media[1] != blank and show_secondary_image %} card-medialink-secondary {% endif %}">
+            <img class="card-medialink-first" src="{{ card_product.media[0].preview_image | product_img_url: 'master' }}">
+            {% if card_product.media[1] != blank and show_secondary_image %}
+              <img class="card-medialink-second" src="{{ card_product.media[1].preview_image | product_img_url: 'master' }}">
+            {% endif %}
+          </a>
+        </div>
+      {% else %}
+        <div class="card_image">
+          <a href="{{ card_product.url }}" class="card-medialink">
+            {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          </a>
+        </div>
+      {% endif %}
+      <div class="row preview-card-pads pt26 pb16">
+        <div class="col-sm">
+          <a href="{{ card_product.url }}" class="card-title-link  h6 m0">{{ card_product.title }}
+          </a>
+        </div>
+        <div class="col-sm-auto">
+          {% render '_price-element', product: card_product, old_price:old_price class: 'card_price  h6 m0' %}
+        </div>
+      </div>
+      <!-- Stamped - Begin Star Rating Badge --> 
+      
+        <p class="m0 pb16  ">
+          <a href="{{ card_product.url }}">
+          <span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{ card_product.id }}" data-product-sku="{{ card_product.handle }}" data-product-type="{{card_product.type}}" data-product-title="{{card_product.title}}" style="display: inline-block; font-family: 'Montserrat'">{{ card_product.metafields.stamped.badge }}</span></p>
+        </a>
+            <!-- Stamped - End Star Rating Badge -->
+          <div class="row no-gutters row_add_product">
+      <div class="col-auto">
+        <div class="card_quantity">
+          <span onclick="preview_card_quantity({{card_product.selected_or_first_available_variant.id}},'minus')">
+            <i class="fal fa-minus"></i>
+          </span>
+
+          <input type="text" id="cart_product_{{card_product.selected_or_first_available_variant.id}}" pattern="[0-9]*" value="1">
+
+          {%- assign quantity_plus_one = line_item.quantity | plus: 1 -%}
+
+          <span onclick="preview_card_quantity({{card_product.selected_or_first_available_variant.id}},'plus')">
+            <i class="fal fa-plus"></i>
+          </span>
+        </div>
+
+      </div>
+      <div class="col">
+        <span class="add_one_product" onclick="add_to_cart_product({{card_product.selected_or_first_available_variant.id}});">Add to bag</span>
+      </div>
+    </div>
+    </div>
+    
+    
+  </div>
+{%- endif -%}

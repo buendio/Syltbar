@@ -1,0 +1,182 @@
+{% style %}
+    {% comment %}
+       /***** h1 fon include *******/
+    {% endcomment %}
+    {{ settings.type_h1 | font_face: font_display: 'swap' }}
+    {% comment %}
+       /***** h2 fon include *******/
+    {% endcomment %}
+    {{ settings.type_h2 | font_face: font_display: 'swap' }}
+    {% comment %}
+       /***** h3 fon include *******/
+    {% endcomment %}
+    {{ settings.type_h3 | font_face: font_display: 'swap' }}
+    {% comment %}
+       /***** h4 fon include *******/
+    {% endcomment %}
+    {{ settings.type_h4 | font_face: font_display: 'swap' }}
+    {% comment %}
+       /***** h5 fon include *******/
+    {% endcomment %}
+    {{ settings.type_h5 | font_face: font_display: 'swap' }}
+    {% comment %}
+       /***** h5 fon include *******/
+    {% endcomment %}
+    {{ settings.type_h6 | font_face: font_display: 'swap' }}
+    {% comment %}
+       /***** body fon include *******/
+    {% endcomment %}
+    {{ settings.type_body_font | font_face: font_display: 'swap' }}
+    :root {
+        {% comment %}
+                /***** h1 settings *******/
+        {% endcomment %}
+        --h1-font-family: 'CANELA-LIGHT', sans-serif;
+        --h1-font-weight:  300;
+        --h1-font-style:{{ settings.type_h1.style }};
+        --h1-size:{{ settings.h1_size }}px;
+        --h1-size-xxxl:{{ settings.h1_size_xxxl }}px;
+        --h1-size-xl:{{ settings.h1_size_xl }}px;
+        --h1-size-md:{{ settings.h1_size_md }}px;
+        --h1-transfom:{{ settings.h1_transfomt }};
+        --h1-letterspacing:{{ settings.h1_letterspacing }}px;
+        --h1-lineheight:{{ settings.h1_lineheight }};
+        {% comment %}
+                /***** h2 settings *******/
+        {% endcomment %}
+        --h2-font-family:  'CANELA-LIGHT', sans-serif;
+        --h2-font-weight:  300;
+        --h2-font-style:{{ settings.type_h2.style }};
+        --h2-size:{{ settings.h2_size }}px;
+        --h2-size-xxxl:{{ settings.h2_size_xxxl }}px;
+        --h2-size-xl:{{ settings.h2_size_xl }}px;
+        --h2-size-md:{{ settings.h2_size_md }}px;
+        --h2-transfom:{{ settings.h2_transfomt }};
+        --h2-letterspacing:{{ settings.h2_letterspacing }}px;
+        --h2-lineheight:{{ settings.h2_lineheight }};
+        {% comment %}
+                /***** h3 settings *******/
+        {% endcomment %}
+        --h3-font-family: 'CANELA-LIGHT', sans-serif;
+        --h3-font-weight: 300;
+        --h3-font-style:{{ settings.type_h3.style }};
+        --h3-size:{{ settings.h3_size }}px;
+        --h3-size-xxxl:{{ settings.h3_size_xxxl }}px;
+        --h3-size-xl:{{ settings.h3_size_xl }}px;
+        --h3-size-md:{{ settings.h3_size_md }}px;
+        --h3-transfom:{{ settings.h3_transfomt }};
+        --h3-letterspacing:{{ settings.h3_letterspacing }}px;
+        --h3-lineheight:{{ settings.h3_lineheight }};
+        {% comment %}
+                /***** h4 settings *******/
+        {% endcomment %}
+        --h4-font-family: 'FuturaPT-Book', sans-serif;
+        --h4-font-weight: 400;
+        --h4-font-style:{{ settings.type_h4.style }};
+        --h4-size:{{ settings.h4_size }}px;
+        --h4-size-xxxl:{{ settings.h4_size_xxxl }}px;
+        --h4-size-xl:{{ settings.h4_size_xl }}px;
+        --h4-size-md:{{ settings.h4_size_md }}px;
+        --h4-transfom:{{ settings.h4_transfomt }};
+        --h4-letterspacing:{{ settings.h4_letterspacing }}px;
+        --h4-lineheight:{{ settings.h4_lineheight }};
+        {% comment %}
+                /***** h5 settings *******/
+        {% endcomment %}
+        --h5-font-family: 'FuturaPT-Medium', sans-serif;
+        --h5-font-weight: 450;
+        --h5-font-style:{{ settings.type_h5.style }};
+        --h5-size:{{ settings.h5_size }}px;
+        --h5-size-xxxl:{{ settings.h5_size_xxxl }}px;
+        --h5-size-xl:{{ settings.h5_size_xl }}px;
+        --h5-size-md:{{ settings.h5_size_md }}px;
+        --h5-transfom:{{ settings.h5_transfomt }};
+        --h5-letterspacing:{{ settings.h5_letterspacing }}px;
+        --h5-lineheight:{{ settings.h5_lineheight }};
+        {% comment %}
+                /***** h6 settings *******/
+        {% endcomment %}
+        --h6-font-family: 'FuturaPT-Demi', sans-serif;
+        --h6-font-weight:500;
+        --h6-font-style:{{ settings.type_h6.style }};
+        --h6-size:{{ settings.h6_size }}px;
+        --h6-size-xxxl:{{ settings.h6_size_xxxl }}px;
+        --h6-size-xl:{{ settings.h6_size_xl }}px;
+        --h6-size-md:{{ settings.h6_size_md }}px;
+        --h6-transfom:{{ settings.h6_transfomt }};
+        --h6-letterspacing:{{ settings.h6_letterspacing }}px;
+        --h6-lineheight:{{ settings.h6_lineheight }};
+       {% comment %}
+                /***** body settings *******/
+        {% endcomment %}
+        --body-font-family: 'FuturaPT-Book', sans-serif;
+        --body-font-weight: 400;
+        --body-font-style:{{ settings.type_body_font.style }};
+        --body-size:{{ settings.body_size }}px;
+        --body-size-xxxl:{{ settings.body_size_xxxl }}px;
+        --body-size-xl:{{ settings.body_size_xl }}px;
+        --body-size-md:{{ settings.body_size_md }}px;
+        --body-letterspacing:{{ settings.body_letterspacing }}px;
+        --body-lineheight:{{ settings.body_lineheight }};
+        {% comment %}
+                /***** Theme colors *******/
+        {% endcomment %}
+        --brand-color-1:{{settings.brand_color_1}};
+        --brand-color-2:{{settings.brand_color_2}};
+        --brand-color-3:{{settings.brand_color_3}};
+        {% comment %}
+                /***** Theme hover colors *******/
+        {% endcomment %}
+        --hover-color-1:{{settings.hover_color_1}};
+        --hover-color-2:{{settings.hover_color_2}};
+        --hover-color-3:{{settings.hover_color_3}};
+        {% comment %}
+                /***** Theme grey colors *******/
+        {% endcomment %}
+        --grey80:{{settings.grey_80}};
+        --grey70:{{settings.grey_70}};
+        --grey60:{{settings.grey_60}};
+        --grey50:{{settings.grey_50}};
+        --grey40:{{settings.grey_40}};
+        --grey30:{{settings.grey_30}};
+        --grey20:{{settings.grey_20}};
+        --grey10:{{settings.grey_10}};
+        --grey5:{{settings.grey_5}};
+    }
+    {% comment %}Colors product custom{% endcomment %}
+    {% if settings.color_swatchers_name_1 != blank %}
+        .option-grid-Color label[data-name="{{settings.color_swatchers_name_1}}"],
+        .card_optioncolor span[data-color="{{settings.color_swatchers_name_1}}"],
+        .facet-checkbox[data-color="{{settings.color_swatchers_name_1}}"] .checkmark{
+            background-color: {{settings.color_swatchers_1}}!important;
+        } 
+    {% endif %}
+    {% if settings.color_swatchers_name_2 != blank %}
+        .option-grid-Color label[data-name="{{settings.color_swatchers_name_2}}"],
+        .card_optioncolor span[data-color="{{settings.color_swatchers_name_2}}"],
+        .facet-checkbox[data-color="{{settings.color_swatchers_name_2}}"] .checkmark{
+            background-color: {{settings.color_swatchers_2}}!important;
+        } 
+    {% endif %}
+    {% if settings.color_swatchers_name_3 != blank %}
+        .option-grid-Color label[data-name="{{settings.color_swatchers_name_3}}"],
+        .card_optioncolor span[data-color="{{settings.color_swatchers_name_3}}"],
+        .facet-checkbox[data-color="{{settings.color_swatchers_name_3}}"] .checkmark{
+            background-color: {{settings.color_swatchers_3}}!important;
+        } 
+    {% endif %}
+    {% if settings.color_swatchers_name_4 != blank %}
+        .option-grid-Color label[data-name="{{settings.color_swatchers_name_4}}"],
+        .card_optioncolor span[data-color="{{settings.color_swatchers_name_4}}"],
+        .facet-checkbox[data-color="{{settings.color_swatchers_name_4}}"] .checkmark{
+            background-color: {{settings.color_swatchers_4}}!important;
+        } 
+    {% endif %}
+    {% if settings.color_swatchers_name_5 != blank %}
+        .option-grid-Color label[data-name="{{settings.color_swatchers_name_5}}"],
+        .card_optioncolor span[data-color="{{settings.color_swatchers_name_5}}"],
+        .facet-checkbox[data-color="{{settings.color_swatchers_name_5}}"] .checkmark{
+            background-color: {{settings.color_swatchers_5}}!important;
+        } 
+    {% endif %}
+{% endstyle %}

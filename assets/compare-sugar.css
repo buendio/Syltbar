@@ -1,0 +1,263 @@
+.compare_sugar .h2{
+  text-align: center;
+  font-family: 'CANELA-LIGHT', sans-serif;
+font-size: 58px;
+line-height: 1.2;  
+color: #A4915C;
+}
+.chart_main_block_title {
+  font-family:  'FuturaPT-Book', sans-serif; 
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  color: #BABABA;
+  padding-bottom: 10px;
+}
+.chart_block {
+  position: relative; 
+}
+.chart_main_block {
+  padding-left: 50px; 
+}
+.chart_block .chart_block_line {
+  position: relative;
+  height: 70px;
+  border-bottom: 1px solid #BABABA;
+  z-index:0;
+}
+.chart_block .chart_block_line span {
+  display: inline-block;
+  position: absolute;
+  left: -50px;
+  bottom: -8px;
+  width: 40px;
+  text-align: right;
+  font-family:  'FuturaPT-Book', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1; 
+  color: #BABABA;
+}
+.chart_block .chart_block_line5 {
+  height: 1px !important;
+}
+.chart_block .chart_block_line:before  {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  width: 5px;
+  height: 5px;
+  border-radius: 5px;
+  background: #BABABA;
+}
+.chart_block .chart_block_line:before { 
+  left: 0;
+} 
+.chart_block_lines_items {
+  position: relative;
+}
+.chart_block_items {
+  position: absolute; 
+  z-index: 10;
+  left: 0px;
+  top: 0;
+  right: 0;
+  height: 100%;
+  margin: 0 15px;
+  display: grid;
+}
+.chart_block_items .item {
+  text-align: center; 
+  position: relative;
+}
+.chart_block_dann { 
+ display: grid;
+ margin: 0 15px;
+}
+.chart_block_dann .item{ 
+  padding: 15px 0 70px 0;
+  text-align: center;
+  position: relative;
+}
+.chart_block_dann .image {
+  line-height: 0;
+  padding: 0 30px;
+}
+.chart_block_dann img {
+  max-width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.chart_block_dann .name {
+  font-family:  'FuturaPT-Book', sans-serif; 
+  font-weight: 450;
+  font-size: 18px;
+  line-height: 1.2; 
+  text-transform: uppercase; 
+  color: #858585; 
+  padding-top: 20px; 
+  position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 70px;
+}  
+.glucose_line_block {
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  bottom: 0;
+}
+.chart_block_items .item .glucose {
+  position: absolute; 
+  left: 0;
+  right: 0;
+  top: 0;
+  font-family: 'Poppins'; 
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.5; 
+  text-align: center; 
+  color: #FFFFFF;
+  z-index: 10;
+  padding-top: 7px;
+}
+.chart_block_items .item .glucose span {
+  display: block; 
+  padding: 0 5px;
+}  
+.chart_block_items .item .glucose_line  {
+  background: linear-gradient(180deg, #C23033 0%, #871619 100%);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  top: 0;
+}
+
+@media(max-width:1200px){
+.compare_sugar .h2{ 
+font-size: 48px; 
+}
+  .chart_block_dann .image { 
+    padding: 0px 25px;
+}
+  .chart_block_dann .name { 
+    font-size: 16px;
+  }
+  .chart_block .chart_block_line span {
+    font-size: 18px;
+  }
+}
+
+
+
+@media(max-width:991px){
+.compare_sugar .h2{ 
+font-size: 38px; 
+}
+  .chart_block_dann .image { 
+    padding: 0px 20px;
+}
+  .chart_block_dann .name { 
+    font-size: 14px;
+    padding-top: 10px;
+  } 
+  .glucose_line_block {
+    left: 10px;
+    right: 10px;
+  }
+  .chart_block_items,.chart_block_dann {
+    margin: 0 0px;
+  }
+  .chart_block .chart_block_line { 
+    height: 60px; 
+  }
+}
+
+  
+@media(max-width:767px){ 
+  .chart_block_items .item .glucose {
+    font-size: 12px;
+    padding-top: 5px;
+  } 
+  
+  .chart_block .chart_block_line { 
+    height: 50px; 
+  }
+  .chart_block .chart_block_line span { 
+    left: -35px;
+    bottom: -7px;
+    width: 30px; 
+    font-size: 16px; 
+}
+  .chart_main_block {
+    padding-left: 35px;
+}
+  .glucose_line_block {
+    left: 5px;
+    right: 5px;
+}
+  .chart_block_dann .name {
+    height: 50px;
+    font-size: 10px;
+  }
+  .chart_block_dann .item {
+    padding: 10px 0 50px; 
+  }
+  .chart_block_dann .image {
+    padding: 0 15px;
+}
+  .compare_sugar .h2 {
+    font-size: 28px;
+}
+}
+
+@media(max-width:640px){ 
+.chart_block .chart_block_line span {
+    left: -25px;
+    bottom: -5px;
+    width: 20px;
+    font-size: 12px;
+}
+  .chart_main_block {
+    padding-left: 25px;
+}
+.chart_block_items .item .glucose {
+    font-size: 10px; 
+  } 
+  
+  .chart_block .chart_block_line { 
+    height: 40px; 
+  }
+
+}
+@media(max-width:575px){ 
+.chart_block_dann .name {
+    font-size: 6px;
+  height: 30px;
+}
+  .chart_block_dann .item {
+    padding: 10px 0 30px;
+}
+  .chart_block_dann .image {
+    padding: 0 10px;
+}
+  .chart_block .chart_block_line { 
+    height: 30px; 
+  }
+  .chart_block_items .item .glucose span { 
+    padding: 0 0px;
+}
+  .chart_block_items .item .glucose {
+    font-size: 8px;padding-top: 3px;
+}
+  .glucose_line_block {
+    left: 2px;
+    right: 2px;
+}
+  .compare_sugar {
+    padding-bottom: 38px;
+  }
+}

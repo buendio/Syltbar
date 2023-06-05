@@ -1,0 +1,104 @@
+{{ 'main-collection-product-grid.css' | asset_url | stylesheet_tag }}
+ 
+<div class="section-{{ section.id }} {{section.settings.sect_class}}">
+  <div class="container pb42">
+      {%- if section.settings.filter_off != true and section.settings.filter_position == 'top' -%}
+     
+        <div class="facets-filter-horisontal" id="main-collection-filters" data-id="{{ section.id }}">
+       
+              {% render 'facets-horizontal', results: collection, enable_filtering: true, enable_sorting: section.settings.enable_sorting, collapse_on_larger_devices: section.settings.collapse_on_larger_devices %}
+           
+        </div>
+      {%- endif -%}
+      <div class="row">
+        {%- if section.settings.filter_off != true and section.settings.filter_position != 'top' -%}
+          <div class="col-md-3">
+              <div id="main-collection-filters" data-id="{{ section.id }}">
+                {% render 'facets', results: collection, enable_filtering: true, enable_sorting: section.settings.enable_sorting, collapse_on_larger_devices: section.settings.collapse_on_larger_devices %}
+              </div> 
+          </div>
+        {%- endif -%}
+        <div class="{%- if section.settings.filter_off != true and section.settings.filter_position != 'top' -%}col-md-9{%- else -%}col-md-12{%- endif -%}" id="ProductGridContainer">
+          {%- paginate collection.products by section.settings.products_per_page -%}
+            {%- if collection.products.size == 0 -%}
+              <div class="collection collection--empty" id="product-grid" data-id="{{ section.id }}">
+                <div class="loading-overlay gradient"></div>
+                <div class="title-wrapper center">
+                  <h2 class="title title--primary">
+                    {{ 'sections.collection_template.empty' | t }}<br>
+                    {{ 'sections.collection_template.use_fewer_filters_html' | t: link: collection.url, class: "underlined-link link" }}
+                  </h2>
+                </div>
+              </div>
+            {%- else -%}
+              <div class="collection">
+                <ul id="product-grid" data-id="{{ section.id }}" class="grid row">
+                  {%- for product in collection.products -%}
+                    <li class="grid__item col-6 col-lg-4 mb42">
+                      {% render 'collection-card-product',
+                        card_product: product,
+                        show_secondary_image: section.settings.show_secondary_image 
+                      %}
+                    </li>
+                  {%- endfor -%}
+                </ul>
+                {%- if paginate.pages > 1 -%}
+                  {% render 'pagination', paginate: paginate, anchor: '' %}
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          {%- endpaginate -%} 
+        </div>
+      </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "t:sections.main-collection-product-grid.name",
+  "class": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 3,
+      "max": 24,
+      "step": 1,
+      "default": 9,
+      "label": "t:sections.main-collection-product-grid.settings.products_per_page.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sorting",
+      "default": true,
+      "label": "t:sections.main-collection-product-grid.settings.enable_sorting.label"
+    },     
+    {
+      "type":"checkbox",
+      "id":"filter_off",
+      "label":"Filter off"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": false,
+      "label": "t:sections.section-product-grid.settings.show_secondary_image.label"
+    },
+    {
+      "type": "select",
+      "id": "filter_position",
+      "label": "Filter position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "top",
+          "label": "Top"
+        }
+      ],
+      "default": "top"
+    }
+  ]
+}
+{% endschema %}

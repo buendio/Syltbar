@@ -1,0 +1,96 @@
+{{ 'our-standards.css' | asset_url | stylesheet_tag }}
+<div class="our_standards p68">
+  <div class="container p16">
+    <div class="row">
+      <div class="col-lg-7 col-md-6 col-12 our_standards_image">
+        {% if section.settings.imagebanner != blank %}
+          <img src="{{ section.settings.imagebanner | img_url: "master" }}">
+        {% endif %}
+      </div>
+      <div class="col-lg-5 col-md-6 col-12 our_standards_dann order-md-first p68">
+        <div class="our_standards_dann_wrapper">
+        {% if section.settings.subtitle != blank %}<div class="subtitle h6">{{ section.settings.subtitle }}</div>{% endif %}
+        {% if section.settings.title != blank %}<h2>{{ section.settings.title }}</h2>{% endif %}
+        {% if section.blocks.size > 0 %} 
+        <div class="our_standards_items">
+        {% for block in section.blocks %}
+            <div class="item">
+                <div class="item_title h4 m0">
+                    {{ block.settings.title }}
+                    <i class="fal fa-plus"></i>
+                </div>
+                <div class="item_text h4 m0">
+                    {{ block.settings.text }}
+          {% if block.settings.link-btn-st %}
+              <a href="{{ block.settings.link-btn-st }}" class="item-btn" style="text-decoration: underline;">
+                {{ block.settings.text-btn-st }}
+              </a>
+              {% endif %}
+                </div>             
+            </div>
+        {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Our Standards",
+  "tag": "section",
+  "class": "section",
+  "settings": [ 
+  {
+    "type": "image_picker",
+    "id": "imagebanner",
+    "label": "Image"
+  },
+  {
+    "type": "text",
+    "id": "title", 
+    "label": "Title"
+  },
+  {
+    "type": "text",
+    "id": "subtitle", 
+    "label": "SubTitle"
+  }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item", 
+      "settings": [
+      {
+        "type": "text",
+        "id": "title", 
+        "label": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "text", 
+        "label": "Text"
+      },
+        {
+        "type": "text",
+        "id": "text-btn-st", 
+        "label": "Link title",
+        "default": "Learn more"
+      },
+        {
+        "type": "url",
+        "id": "link-btn-st", 
+        "label": "Link"
+      }
+      ]
+    } 
+  ],
+  "presets": [
+    {
+      "name": "Our Standards"
+    }
+  ]
+}
+{% endschema %}

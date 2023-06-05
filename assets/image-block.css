@@ -1,0 +1,34 @@
+.image-block {
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+}
+@media (max-width: 1200px) {
+  .image-block {
+    height: 500px;
+  }
+}
+@media (max-width: 767px) {
+  .image-block {
+    height: 400px;
+  }
+}
+.image-block img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.image-block.parallax-container img {
+  display: none;
+}
+
+body.product .image-block { 
+  height: 500px; 
+} 

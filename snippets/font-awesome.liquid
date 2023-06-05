@@ -1,0 +1,130 @@
+<style>
+   @font-face {
+      font-family: 'CANELA-LIGHT';
+      font-style: normal;
+      font-weight: 300;
+      font-display: block;
+      src: url('{{ "canela-light.eot" | asset_url }}');
+      src: url('{{ "canela-light.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+        url('{{ "canela-light.woff2" | asset_url }}') format('woff2'),
+        url('{{ "canela-light.woff" | asset_url }}') format('woff'),
+        url('{{ "canela-light.ttf" | asset_url }}') format('truetype');
+    }
+
+    
+    
+    @font-face {
+	font-family: 'FuturaPT-Book';
+	src: url('{{ "FuturaPTBook.eot" | asset_url }}');
+	src: local('FuturaPTBook'), local('FuturaPT-Book'),
+    url('{{ "FuturaPTBook.woff2" | asset_url }}') format('woff2'),
+		url('{{ "FuturaPTBook.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+		url('{{ "FuturaPTBook.woff" | asset_url }}') format('woff'),
+		url('{{ "FuturaPTBook.ttf" | asset_url }}') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'FuturaPT-Medium';
+	src: url('{{ "FuturaPTMedium.eot" | asset_url }}');
+	src: local('FuturaPTMedium'), local('FuturaPT-Medium'),
+    url('{{ "FuturaPTMedium.woff2" | asset_url }}') format('woff2'),
+		url('{{ "FuturaPTMedium.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+		url('{{ "FuturaPTMedium.woff" | asset_url }}') format('woff'),
+		url('{{ "FuturaPTMedium.ttf" | asset_url }}') format('truetype');
+	font-weight: 450;
+	font-style: normal;
+}
+ 
+@font-face {
+	font-family: 'FuturaPT-Demi';
+	src: url('{{ "FuturaPTDemi.eot" | asset_url }}');
+	src: local('FuturaPTDemi'), local('FuturaPT-Demi'),
+    url('{{ "FuturaPTDemi.woff2" | asset_url }}') format('woff2'),
+		url('{{ "FuturaPTDemi.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+		url('{{ "FuturaPTDemi.woff" | asset_url }}') format('woff'),
+		url('{{ "FuturaPTDemi.ttf" | asset_url }}') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+}
+
+    @font-face {
+      font-family: 'Font Awesome 5 Pro';
+      font-style: normal;
+      font-weight: 300;
+      font-display: block;
+      src: url('{{ "fa-light-300.eot" | asset_url }}');
+      src: url('{{ "fa-light-300.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+        url('{{ "fa-light-300.woff2" | asset_url }}') format('woff2'),
+        url('{{ "fa-light-300.woff" | asset_url }}') format('woff'),
+        url('{{ "fa-light-300.ttf" | asset_url }}') format('truetype'),
+        url('{{ "fa-light-300.svg#fontawesome" | asset_url }}') format('svg');
+    }
+
+    @font-face {
+      font-family: 'Font Awesome 5 Brands';
+      font-style: normal;
+      font-weight: 400;
+      font-display: block;
+      src: url('{{ "fa-brands-400.eot" | asset_url }}');
+      src: url('{{ "fa-brands-400.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+        url('{{ "fa-brands-400.woff2" | asset_url }}') format('woff2'),
+        url('{{ "fa-brands-400.woff" | asset_url }}') format('woff'),
+        url('{{ "fa-brands-400.ttf" | asset_url }}') format('truetype'),
+        url('{{ "fa-brands-400.svg#fontawesome" | asset_url }}') format('svg');
+    }
+
+
+    @font-face {
+      font-family: 'Font Awesome 5 Duotone';
+      font-style: normal;
+      font-weight: 900;
+      font-display: block;
+      src: url('{{ "fa-duotone-900.eot" | asset_url }}');
+      src: url('{{ "fa-duotone-900.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+        url('{{ "fa-duotone-900.woff2" | asset_url }}') format('woff2'),
+        url('{{ "fa-duotone-900.woff" | asset_url }}') format('woff'),
+        url('{{ "fa-duotone-900.ttf" | asset_url }}') format('truetype'),
+        url('{{ "fa-duotone-900.svg#fontawesome" | asset_url }}') format('svg');
+    }
+
+    @font-face {
+      font-family: 'Font Awesome 5 Pro';
+      font-style: normal;
+      font-weight: 300;
+      font-display: block;
+      src: url('{{ "fa-light-300.eot" | asset_url }}');
+      src: url('{{ "fa-light-300.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+        url('{{ "fa-light-300.woff2" | asset_url }}') format('woff2'),
+        url('{{ "fa-light-300.woff" | asset_url }}') format('woff'),
+        url('{{ "fa-light-300.ttf" | asset_url }}') format('truetype'),
+        url('{{ "fa-light-300.svg#fontawesome" | asset_url }}') format('svg');
+    }
+
+    @font-face {
+      font-family: 'Font Awesome 5 Pro';
+      font-style: normal;
+      font-weight: 400;
+      font-display: block;
+      src: url('{{ "fa-regular-400.eot" | asset_url }}');
+      src: url('{{ "fa-regular-400.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+        url('{{ "fa-regular-400.woff2" | asset_url }}') format('woff2'),
+        url('{{ "fa-regular-400.woff" | asset_url }}') format('woff'),
+        url('{{ "fa-regular-400.ttf" | asset_url }}') format('truetype'),
+        url('{{ "fa-regular-400.svg#fontawesome" | asset_url }}') format('svg');
+    }
+
+    @font-face {
+      font-family: 'Font Awesome 5 Pro';
+      font-style: normal;
+      font-weight: 900;
+      font-display: block;
+      src: url('{{ "fa-solid-900.eot" | asset_url }}');
+      src: url('{{ "fa-solid-900.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+        url('{{ "fa-solid-900.woff2" | asset_url }}') format('woff2'),
+        url('{{ "fa-solid-900.woff" | asset_url }}') format('woff'),
+        url('{{ "fa-solid-900.ttf" | asset_url }}') format('truetype'),
+        url('{{ "fa-solid-900.svg#fontawesome" | asset_url }}') format('svg');
+    }
+        </style>

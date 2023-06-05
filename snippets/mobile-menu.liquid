@@ -1,0 +1,92 @@
+<!-- This example requires Tailwind CSS v2.0+ -->
+<div class="fixed mobmenuwrapper"
+    x-data="{ showMenu: false }"
+    x-show="showMenu"
+    @toggle-menu.window="showMenu = !showMenu"
+     aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+    <div class="mobmenulist">
+       
+      <div class="mobmenuoverlay" x-show="showMenu" x-transition.opacity @click="showMenu = false" aria-hidden="true"></div>
+      <div class="fixed menuscolwrapper">
+       
+        <div class="menuinnerscrlwrp" 
+            x-show="showMenu"
+            x-transition:enter="ease-in-out duration-500 sm:duration-700" 
+            x-transition:enter-start="-translate-x-full opacity-0" 
+            x-transition:enter-end="translate-x-0 opacity-100" 
+            x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700" 
+            x-transition:leave-start="translate-x-0" 
+            x-transition:leave-end="-translate-x-full opacity-0"
+            >
+          <div class="menubtnclose">
+            <button type="button" 
+                @click="showMenu = false" 
+                class="openmobmenu">
+              <span class="sr-only">Close panel</span>
+              <i class="fa fa-times"></i>
+            </button>
+          </div>
+  
+          <div class="menuboxscrooll">
+
+            <div class="moblislinkwrapper">
+                <ul role="list" class="moblinklist">
+                    {%- for link in section.settings.menu.links -%}
+                        <li>
+                            {%- if link.links != blank -%}
+                         
+                                <div 
+                                    x-data="{ openSubMenu: false }"
+                                    x-cloak
+                                    class="has-sub-menu">
+
+                                    <div class="inner-sub-wrp" :class="{ 'menu-active': openSubMenu }">
+                                        <a href="{{ link.url }}"
+                                            class="submenuparentlink"
+                                            {% if link.current %} aria-current="page"{% endif %}>
+                                            {{ link.title | escape }}
+                                        </a>
+                                        <button type="button" @click.prevent="openSubMenu = !openSubMenu"
+                                                title="Toggle menu"
+                                                class="opesubmenu">
+                                                {% render 'icon-arrow-right', class: "h-6 transform rotate-90 ml-auto" %}
+                                        </button>
+
+                                    </div>
+                    
+                                    <div class="navigation__submenu" x-collapse x-show="openSubMenu">
+                                        <ul>
+                                            {% for submenu in linklists[link.handle].links %}
+                                                {% if submenu.title != 'megamenu' %}
+                                                    <li>
+                                                        <a href="{{ submenu.url }}" class="animate-link">
+                                                            <span>
+                                                                {{ submenu.title  }}
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                    
+                                </div>                                        
+
+                            {%- else -%}
+                                <a href="{{ link.url }}" class="animate-link"{% if link.current %} aria-current="page"{% endif %}>
+                                    <span {%- if link.current %} class="header__active-menu-item" {% endif %}>
+                                        {{ link.title | escape }}
+                                    </span>
+                                </a>                                    
+                            {% endif %}
+                        </li>
+                    {%- endfor -%}
+                </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+  

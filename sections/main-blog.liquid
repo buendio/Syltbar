@@ -1,0 +1,36 @@
+{% comment %}
+  {{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
+{% endcomment %}
+{% assign  post_per_page = 21 %}
+{%- paginate blog.articles by post_per_page -%}
+  <div class="main-blog p110 section-{{ section.id }} {{section.settings.sect_class}}">
+    <div class="container">
+      <h1 class="h1 mb26 ">{{ blog.title | escape }}
+      </h1>
+
+      <div class="blog-articles row pt42">
+
+        {%- for article in blog.articles -%}
+          <div class="blog-articles__article col-lg-4 col-md-6 pb42">
+            {%- render 'article-card',
+                            article: article 
+                          -%}
+          </div>
+        {%- endfor -%}
+      </div>
+
+      {%- if paginate.pages > 1 -%}
+        {%- render 'pagination', paginate: paginate -%}
+      {%- endif -%}
+    </div>
+  </div>
+{%- endpaginate -%}
+
+{% schema %}
+  {
+    "name": "t:sections.main-blog.name",
+    "tag": "section",
+    "class": "section",
+    "settings": []
+  }
+{% endschema %}

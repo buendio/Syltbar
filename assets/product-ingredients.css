@@ -1,0 +1,14 @@
+.product-ingredients .item_wrapper {
+  padding: 0 15px;
+}
+.product-ingredients .item_wrapper .ico {
+  height: 115px;
+}
+.product-ingredients .item_wrapper .h2 {
+  color: #A4915C;
+}
+@media (max-width: 1200px) {
+  .product-ingredients .item_wrapper {
+    padding: 0;
+  }
+}

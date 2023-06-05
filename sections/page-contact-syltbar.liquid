@@ -1,0 +1,108 @@
+{% if section.settings.image1 != blank  %}
+  <div class="contact_block_image">
+    {% if section.settings.image1 != blank %}
+      <img src="{{section.settings.image1 | img_url: "master" }}" class="desctop">
+      {% endif %}
+      {% assign mob = section.settings.imagebanner %}
+      {% if section.settings.imagebanner_mobile != blank %}
+          {% assign mob = section.settings.imagebanner_mobile %}
+      {% endif %}
+      <img src="{{ mob | img_url: "master" }}" class="mobile"> 
+  </div>
+{% endif %}
+<div class="contact_block_dann p110">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        {% if  section.settings.text2 != blank %}
+          {{ section.settings.text2 }}
+        {% endif %}
+      </div>
+      <div class="col-md-6">
+        {%- form 'contact', id: 'ContactForm', class: 'contact-form' -%}
+
+          <div class="item">
+            <label for="ContactFormName">
+              {{ 'templates.contact.form.name' | t }}
+              <sup>*</sup>
+            </label>
+            <input type="text" id="ContactFormName" required name="contact[name]">
+          </div>
+          <div class="item pt26">
+            <label for="contactFormEmail">
+              {{ 'templates.contact.form.email' | t }}
+              <sup>*</sup>
+            </label>
+            <input type="email" id="contactFormEmail" required name="contact[email]" autocorrect="off" autocapitalize="off">
+            {%- if form.errors contains 'email' -%}
+              <small class="contact__field-error" id="ContactForm-email-error">
+                <span class="visually-hidden">{{ 'accessibility.error' | t }}
+                </span>
+                <span class="form__message">{% render 'icon-error' %}
+                  {{ form.errors.translated_fields['email'] | capitalize }}
+                  {{ form.errors.messages['email'] }}
+                </span>
+              </small>
+            {%- endif -%}
+          </div>
+
+          <div class="item pt26">
+            <label for="contact-form__textarea" class="pb10">{{ 'templates.contact.form.message' | t }}
+            </label>
+            <textarea id="contact-form__textarea" required name="contact[message]"></textarea>
+          </div>
+          <div class="item_button pt26">
+            <button type="submit" class="button_arrow" name="commit">
+              submit
+              <div class="arrow">
+                <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0.5 8C0.846821 7.27066 1.18208 6.63248 1.50578 6.08547C1.8526 5.53846 2.18786 5.08262 2.51156 4.71795L2.51153 3.69231L2.51156 3.28205C2.18786 2.89459 1.8526 2.42735 1.50578 1.88034C1.18208 1.33333 0.846821 0.706552 0.5 0H1.71387C3.17052 1.66382 4.69653 2.89459 6.29191 3.69231V4.30769C4.69653 5.08262 3.17052 6.31339 1.71387 8H0.5Z" fill="#A4915C"/>
+                </svg>
+              </div>
+            </button>
+          </div>
+          {% if form.posted_successfully? %}
+            <div class="form-status form-status--success mt26" tabindex="-1" autofocus>{% render 'icon-success' %}
+              {{ 'templates.contact.form.post_success' | t }}
+            </div>
+          {% endif %}
+          {% if form.errors? %}
+            <div class="form-status form-status--error mt26" tabindex="-1" autofocus>{% render 'icon-error' %}
+              {{ 'templates.contact.form.error_heading' | t }}
+            </div>
+          {% endif %}
+        {%- endform -%}
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Page",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Block 1"
+      }, {
+        "type": "image_picker",
+        "id": "image1",
+        "label": "Image"
+      }, 
+          {
+      "type": "image_picker",
+      "id": "imagebanner_mobile",
+      "label": "Image mobile"
+    },  
+      {
+        "type": "header",
+        "content": "Block 2"
+      }, {
+        "type": "html",
+        "id": "text2",
+        "label": "Text"
+      }
+    ]
+  }
+{% endschema %}

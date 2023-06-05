@@ -1,0 +1,36 @@
+.facts-wrapper {
+  position: relative;
+}
+.facts-wrapper .parallax-container {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.facts-wrapper .container {
+  height: 600px;
+  text-align: right;
+  position: relative;
+  z-index: 2;
+}
+.facts-wrapper .button_arrow_border {
+  max-width: 310px;
+  margin-left: auto;
+}
+@media (max-width: 1360px) {
+  .facts-wrapper .container {
+    height: 500px;
+  }
+}
+@media (max-width: 991px) {
+  .facts-wrapper .container {
+    height: 400px;
+  }
+}
+
+.parallax-container.parallax-container-mobile {
+  display: none;
+}
+

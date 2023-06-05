@@ -1,0 +1,134 @@
+{{ 'compare-sugar.css' | asset_url | stylesheet_tag }}
+<div class="compare_sugar compare_sugar_1 pt48 pb110 ">
+    <div class="container pt16">  
+                {% if section.settings.title != blank %}
+                <div class="h2">{{ section.settings.title }}</div>
+                {% endif %}
+             
+      {% if section.blocks.size > 0 %} 
+        <div class="chart_main_block compare_sugar_1_block pt16  mt26 ">
+          <div class="chart_main_block_title">Glucose (mg/100ml)</div>
+          <div class="chart_block">
+            <div class="chart_block_lines_items">
+          <div class="chart_block_line chart_block_line5"><span>800</span></div>
+          <div class="chart_block_line chart_block_line4"><span>600</span></div>
+          <div class="chart_block_line chart_block_line3"><span>400</span></div>
+          <div class="chart_block_line chart_block_line2"><span>200</span></div>
+          <div class="chart_block_line chart_block_line1"><span>0</span></div>
+          <div class="chart_block_items"> 
+            {% assign count = 1 %}
+            {% for block in section.blocks %}
+              <div class=" item">  
+                  {% if block.settings.glucose != blank %}
+                    {% assign glucose = 0 %}
+                    {% assign glucose1 = block.settings.glucose | times: 100 %}
+                    {% assign glucose = glucose1 | divided_by: 800 %}
+                    <div class="glucose_line_block glucose_line_block_{{ count }}">
+                    <div class="glucose"><span>{{ block.settings.glucose }}</span></div>
+                    <div class="glucose_line" ></div>
+                    </div>
+                  {% endif %} 
+              <style>
+               .compare_sugar_1 .glucose_line_block_{{ count }} {
+                  height: {{ glucose }}%;
+                } 
+                .compare_sugar_1_animation .glucose_line_block_{{ count }} {
+                  animation: change_height_1_{{ count }} 1s 1;
+                } 
+                @keyframes change_height_1_{{ count }} {
+                0% {
+                  height: 0;
+                }
+                100% {
+                  height: {{ glucose }}%;
+                }
+                }
+              </style>
+              </div>
+              {% assign count = count | plus : 1 %}
+            {% endfor %}
+         {% assign count = count | minus : 1 %}
+        <style>
+          .compare_sugar_1 .chart_block_dann, .compare_sugar_1  .chart_block_items {
+        grid-template-columns: repeat({{ count }},1fr);
+          }
+        </style>
+          </div>
+            </div>
+            <div class="chart_block_dann">  
+            {% for block in section.blocks %}
+              <div class="col item">  
+                 {% if block.settings.image != blank %}
+                    <div class="image"><img src="{{ block.settings.image | img_url: "master" }}"></div>
+                 {% endif %}
+                 {% if block.settings.name != blank %}
+                   <div class="name">{{ block.settings.name }}</div>
+                 {% endif %}  
+              </div> 
+            {% endfor %}
+          </div>
+        </div> </div>
+      {% endif %}       
+    </div>
+</div>
+<script>
+(function () {
+  var square = document.querySelector('.compare_sugar_1_block');
+
+  var observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (typeof getCurrentAnimationPreference === 'function' && !getCurrentAnimationPreference()) {
+        return;
+      }
+
+      if (entry.isIntersecting) {
+        entry.target.classList.add('compare_sugar_1_animation');
+      }
+    });
+  });
+
+  observer.observe(square);
+})();
+ </script>  
+{% schema %}
+{
+  "name": "Compare sugar 1",
+  "tag": "section",
+  "class": "section",
+  "settings": [ 
+  {
+    "type": "text",
+    "id": "title", 
+    "label": "Title"
+  } 
+  ] ,
+  "blocks": [
+      {
+        "type": "bottle",
+        "name": "Bottle",
+        "settings": [
+          {
+            "type": "text",
+            "id": "name",
+            "label": "Name"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "number",
+            "id": "glucose",
+            "label": "Glucose"
+          }
+        ]
+      }
+    ],
+  "presets": [
+    {
+      "name": "Compare sugar 1"
+    }
+  ]
+}
+{% endschema %}

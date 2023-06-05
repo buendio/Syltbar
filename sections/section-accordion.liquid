@@ -1,0 +1,165 @@
+{{ 'section-accordion.css' | asset_url | stylesheet_tag }}
+{% if section.settings.padding_top != 0 or section.settings.padding_bottom != 0 or section.settings.bg_color != 'rgba(0,0,0,0)' %}
+  {%- style -%} 
+      .section-{{ section.id }} {
+        {% if section.settings.bg_color != 'rgba(0,0,0,0)' %}
+          background-color:{{section.settings.bg_color}};
+        {% endif %}
+        {% if section.settings.padding_top != 0 %}
+          padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+        {% endif %}
+        {% if section.settings.padding_bottom != 0 %}
+          padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+        {% endif %}
+      }
+      @media screen and (min-width: 750px) {
+        .section-{{ section.id }} {
+          {% if section.settings.padding_top != 0 %}
+            padding-top: {{ section.settings.padding_top }}px;
+          {% endif %}
+          {% if section.settings.padding_bottom != 0 %}
+            padding-bottom: {{ section.settings.padding_bottom }}px;
+          {% endif %}
+        }
+      }
+  {%- endstyle -%}
+{% endif %}
+<div class="pb68 pt42 section-{{ section.id }} {{section.settings.sect_class}}">
+    <div class="container"> 
+        {%- if template.name == 'page' -%}
+                {%- if section.settings.title != blank -%}
+                    <div class="mb26 h1 center">{{- section.settings.title -}}</div>
+                {%- endif -%}
+            {%- else -%} 
+                {%- if section.settings.title != blank -%}
+                    <div class="mb42 h2 center">{{- section.settings.title -}}</div>
+                {%- endif -%} 
+        {%- endif -%}
+        {%- if section.settings.subtitle != blank -%}
+            <div class="h4 mb26 faq__subtitle caps" >{{- section.settings.subtitle -}}</div>
+        {%- endif -%}
+        {%- if section.settings.text != blank -%}
+            <p class="faq__text">{{- section.settings.text -}}</p>
+        {%- endif -%}
+        {%- if section.blocks.size > 0 -%}
+        <div class="row">
+            {%- for block in section.blocks -%}
+            {%- if block.settings.title != blank -%}
+                <div class="col-md-6 faq__wr">
+                    <div class="faq__content">
+                        <div class="faq__question">
+                            <span class="h6 caps">{{- block.settings.title -}}</span>
+                            <span class="plus"><i class="fa fa-plus"></i></span>
+                            <span class="minus"><i class="fa fa-minus"></i></span>
+                        </div>
+                        {%- if block.settings.text != blank -%}
+                            <div class="faq__answer text pb26 m0 color-grey50">{{- block.settings.text -}}</div>
+                        {%- endif -%}
+                    </div>
+                </div>
+            {%- endif -%}
+            {%- endfor -%}
+        </div>
+        {%- endif -%}
+    </div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    $('.faq__question').on('click',function(){
+        if(!$(this).hasClass('active'))
+        {
+            $(this).next().slideDown();
+            $('.faq__question.active').next().stop().slideUp();
+            $('.faq__question.active').removeClass('active');
+            $(this).addClass('active');
+        }
+        else
+        {
+            $(this).removeClass('active');
+            $(this).next().stop().slideUp();
+        }
+    });
+});
+</script>
+{% schema %}
+{
+  "name": "t:sections.section-accordion.name",
+  "tag": "section",
+  "class": "faq",
+        "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "t:sections.section-accordion.settings.title.label"
+        },
+        {
+            "type": "text",
+            "id": "subtitle",
+            "label": "t:sections.section-accordion.settings.subtitle.label"
+        },
+        {
+            "type": "html",
+            "id": "text",
+            "label": "t:sections.section-accordion.settings.text.label"
+        },
+        {
+        "type": "header",
+        "content": "t:sections.all.section_head"
+        },
+        {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 0
+        },
+        {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 0
+        },
+        {
+        "type": "color",
+        "id": "bg_color",
+        "label": "t:sections.all.bg_color"
+        },
+        {
+        "type": "text",
+        "id": "sect_class",
+        "label": "t:sections.all.sect_class"
+        }
+    ],
+    "blocks": [
+		{
+			"type": "item",
+			"name": "t:sections.section-accordion.blocks.heading.name",
+			"settings": [
+				{
+					"type": "text",
+					"id": "title",
+					"label": "t:sections.section-accordion.blocks.heading.settings.title.label"
+				},
+				{
+					"type": "html",
+					"id": "text",
+					"label": "t:sections.section-accordion.blocks.heading.settings.text.label"
+				}
+			]
+		}
+	],
+	"presets": [
+		{
+		"name": "t:sections.section-accordion.name",
+		"category": "Text"
+		}
+	]
+}
+{% endschema %}

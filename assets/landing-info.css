@@ -1,0 +1,22 @@
+.landing-info_title ,
+.landing-info_subtitle {
+  color: var(--brand-color-2);
+}
+
+.landing-info_text {
+  max-width: 700px;
+    display: block;
+    margin: 0 auto;
+    font-size: 18px;
+}
+
+.landing-info_text a {
+  color: var(--brand-color-2);
+  text-decoration: underline;
+}
+
+.landing-info_text:hover a {
+  text-decoration: none;
+}
+
+ 

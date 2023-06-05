@@ -1,0 +1,70 @@
+{{ 'about_us.css' | asset_url | stylesheet_tag }}
+<div class="about_us">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-12 about_us_image">
+        {% if section.settings.imagebanner != blank %}
+          <img src="{{ section.settings.imagebanner | img_url: "master" }}">
+        {% endif %}
+      </div>
+      <div class="col-md-6">
+    </div>
+      <div class="col-md-6 col-12 about_us_dann">
+        <div class="row justify-content-end">
+            <div class="about_us_dann_wrapper col-auto"> 
+                {% if section.settings.subtitle != blank %}<div class="h6">{{ section.settings.subtitle }}</div>{% endif %}
+                {% if section.settings.title != blank %}<h2>{{ section.settings.title }}</h2>{% endif %}
+                {% if section.settings.btnname != blank %}<a href="{{ section.settings.urlbanner }}" class="button_arrow_border mt42">{% include "button_arrow", title: section.settings.btnname %}</a>{% endif %}
+             </div>
+        </div>
+       
+        {% if section.settings.text != blank %}<div class="text">{{ section.settings.text }}</div>{% endif %}
+    
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "About Us",
+  "tag": "section",
+  "class": "section",
+  "settings": [ 
+  {
+    "type": "image_picker",
+    "id": "imagebanner",
+    "label": "Image"
+  },
+  
+  {
+    "type": "text",
+    "id": "subtitle", 
+    "label": "SubTitle"
+  },{
+    "type": "text",
+    "id": "title", 
+    "label": "Title"
+  },
+  {
+    "type": "html",
+    "id": "text", 
+    "label": "Text"
+  },    
+  {
+    "type": "url",
+    "id": "urlbanner",
+    "label": "t:sections.section-bannerimage.settings.urlbanner.label"
+  },
+  {
+    "type": "text",
+    "id": "btnname",
+    "label": "t:sections.section-bannerimage.settings.btnname.label"
+  } 
+  ], 
+  "presets": [
+    {
+      "name": "About Us"
+    }
+  ]
+}
+{% endschema %}

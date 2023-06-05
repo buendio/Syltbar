@@ -1,0 +1,220 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "1c4fcd48-4a1c-495f-9e99-4a7a7452a23a": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "subtitle"
+          }
+        },
+        "e5483e20-cf7e-42f7-b7e7-880675a0c121": {
+          "type": "title",
+          "settings": {}
+        },
+        "7efc6191-74dc-4c5f-afda-1f844cf28453": {
+          "type": "description",
+          "settings": {}
+        },
+        "e4e2afc0-cde4-44db-a202-6a2142fd2c20": {
+          "type": "rating",
+          "settings": {}
+        },
+        "9cd5ac9d-baef-445f-b432-e9ba55a579a9": {
+          "type": "price",
+          "settings": {
+            "old_price_hide": true,
+            "sale_price_hide": false,
+            "use_variant": false
+          }
+        },
+        "f785d826-1f9f-4524-bd94-53f664d016b2": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "dropdown"
+          }
+        },
+        "74cf974b-6dbb-4c7f-9a62-be1e5888a394": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        },
+        "953e54b9-51fb-4c11-a500-c291d8f27445": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<ul class=\"shipping_orders\">\n<li><i class=\"fa fa-truck\"><\/i>Free ground shipping with 12+ bottles\n<li><i class=\"fa fa-clock\"><\/i>Orders before 10AM EST ship same business day\n<\/ul>"
+          }
+        },
+        "b374c7b2-fad6-434c-a8f7-f386ddb7cb07": {
+          "type": "producttabs",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "1c4fcd48-4a1c-495f-9e99-4a7a7452a23a",
+        "e5483e20-cf7e-42f7-b7e7-880675a0c121",
+        "7efc6191-74dc-4c5f-afda-1f844cf28453",
+        "e4e2afc0-cde4-44db-a202-6a2142fd2c20",
+        "9cd5ac9d-baef-445f-b432-e9ba55a579a9",
+        "f785d826-1f9f-4524-bd94-53f664d016b2",
+        "74cf974b-6dbb-4c7f-9a62-be1e5888a394",
+        "953e54b9-51fb-4c11-a500-c291d8f27445",
+        "b374c7b2-fad6-434c-a8f7-f386ddb7cb07"
+      ],
+      "settings": {}
+    },
+    "166434967263d439c5": {
+      "type": "reviews",
+      "blocks": {
+        "48bcc97b-8bb1-4b0b-9479-46c05c1a989a": {
+          "type": "item",
+          "settings": {
+            "star": "5",
+            "title": "{{ product.metafields.custom.review_1_title.value }}",
+            "text": "<p>I order this wine by the case. It's absolutely delicious - crisp, not too sweet. I have a bottle in my fridge at all times. I's just a plus that this is lower calories and less sugar than all other Prosecco's!{{ product.metafields.custom.review_1_text | metafield_tag }}<\/p>",
+            "name": "{{ product.metafields.custom.review_1_name.value }}"
+          }
+        },
+        "6c8d8dc4-94e0-4911-9fd8-acc1cbc21c69": {
+          "type": "item",
+          "settings": {
+            "star": "5",
+            "title": "{{ product.metafields.custom.review_2_title.value }}",
+            "text": "<p>{{ product.metafields.custom.review_2_text | metafield_tag }}<\/p>",
+            "name": "{{ product.metafields.custom.review_2_name.value }}"
+          }
+        },
+        "099771cd-487f-4c98-b520-70fe4240aa59": {
+          "type": "item",
+          "settings": {
+            "star": "5",
+            "title": "{{ product.metafields.custom.review_3_title.value }}",
+            "text": "<p>{{ product.metafields.custom.review_3_text | metafield_tag }}<\/p>",
+            "name": "{{ product.metafields.custom.review_3_name.value }}"
+          }
+        }
+      },
+      "block_order": [
+        "48bcc97b-8bb1-4b0b-9479-46c05c1a989a",
+        "6c8d8dc4-94e0-4911-9fd8-acc1cbc21c69",
+        "099771cd-487f-4c98-b520-70fe4240aa59"
+      ],
+      "settings": {}
+    },
+    "16643511358a0a42c5": {
+      "type": "product-ingredients",
+      "blocks": {
+        "a467a33c-0ae1-414b-a32f-ce1ffd076d4a": {
+          "type": "item",
+          "settings": {
+            "ico": "shopify:\/\/shop_images\/280.png",
+            "title": "Sugar is your Enemy",
+            "text": "<p>The University of Miami Diabetes Research Institute tested sparkling wines and found SYLTBAR has the lowest sugar content.<\/p>"
+          }
+        },
+        "9286c261-4a50-4cd4-a7ba-5fbad8d4e537": {
+          "type": "item",
+          "settings": {
+            "ico": "shopify:\/\/shop_images\/leaf_icon_1.png",
+            "title": "Our Extra Effort",
+            "text": "<p>Despite the fact that we are not vegan, our wine is vegan. The majority of wines are not vegan or even vegetarian-friendly. <\/p>"
+          }
+        },
+        "141b11b1-b641-4468-b3fb-2d1bc7d5bd38": {
+          "type": "item",
+          "settings": {
+            "ico": "shopify:\/\/shop_images\/hands_icon_1.png",
+            "title": "Respect for Nature",
+            "text": "<p>The Green Project certification, found on each of our bottles, is a step above organic in respect of Mother Nature. <\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "a467a33c-0ae1-414b-a32f-ce1ffd076d4a",
+        "9286c261-4a50-4cd4-a7ba-5fbad8d4e537",
+        "141b11b1-b641-4468-b3fb-2d1bc7d5bd38"
+      ],
+      "settings": {
+        "title": "Nothing Added, Nothing Removed ..."
+      }
+    },
+    "16643572272737dfbe": {
+      "type": "image-block",
+      "settings": {
+        "ico": "shopify:\/\/shop_images\/New_wine_club.jpg",
+        "parallax": true
+      }
+    },
+    "1664359701d3165bd5": {
+      "type": "product-sugar",
+      "settings": {
+        "ico": "shopify:\/\/shop_images\/Group_12553_e66d5fdb-dbe0-48a4-bda5-ea78f4276097.png",
+        "title": "Sparkling Wine Sugar Comprasion",
+        "url": "shopify:\/\/pages\/compare-syltbar",
+        "urltitle": "Read More"
+      }
+    },
+    "165610346027b6f4e4": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "All Essentials",
+        "url": "shopify:\/\/collections\/shop-all",
+        "urltitle": "shop All",
+        "show_secondary_image": true
+      }
+    },
+    "99375763-22a1-41a3-a105-aea1bf8eb127": {
+      "type": "review-app-section",
+      "disabled": true,
+      "settings": {}
+    },
+    "166688689553eeeff7": {
+      "type": "apps",
+      "blocks": {
+        "6cc7df41-9c23-4feb-b8c5-898be30e3db8": {
+          "type": "shopify:\/\/apps\/stamped-product-reviews-ugc\/blocks\/main-widget\/a103faaf-2125-4b0e-89fa-de5149736723",
+          "settings": {
+            "take_questions": 10,
+            "animation": true,
+            "tags_exclude": "",
+            "tags_include": "",
+            "search": "",
+            "linkify": true,
+            "use_metafields": true,
+            "sku_tagtype": "sku"
+          }
+        }
+      },
+      "block_order": [
+        "6cc7df41-9c23-4feb-b8c5-898be30e3db8"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "514ad0ae-dde1-4b76-bd1c-a7e9374541fb": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "custom_liquid": "",
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "166434967263d439c5",
+    "16643511358a0a42c5",
+    "16643572272737dfbe",
+    "1664359701d3165bd5",
+    "165610346027b6f4e4",
+    "99375763-22a1-41a3-a105-aea1bf8eb127",
+    "166688689553eeeff7",
+    "514ad0ae-dde1-4b76-bd1c-a7e9374541fb"
+  ]
+}

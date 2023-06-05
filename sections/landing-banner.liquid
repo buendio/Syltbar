@@ -1,0 +1,242 @@
+{{ 'landing-banner.css' | asset_url | stylesheet_tag }}
+<div class="container mb42">
+  <div class="row landing-banner">
+    <div class="col-md-6 landing-banner_img">
+       {% if section.settings.image != blank %}
+          <img src="{{ section.settings.image | img_url: "master" }}">
+        {% endif %}
+    </div>  
+    <div class="col-md-6"></div>
+    <div class="col-md-6">
+      <div class="landing-banner_info p68">
+        {% if section.settings.title != blank %}
+          <h1 class="h2 landing-banner_info-title fw_700">
+            {{ section.settings.title }}
+          </h1>  
+        {% endif %}
+        {% if section.settings.subtitle != blank %}
+          <div class="h3 fw_700 landing-banner_info-subtitle">
+            {{ section.settings.subtitle }}
+          </div>  
+        {% endif %}
+         {% if section.blocks.size > 0 %} 
+        <div class="landing-banner_items">
+        {% for block in section.blocks %}
+          {% if block.type == 'item' %}
+            <div class="item">
+                <div class="item_title h4 m0">
+                    {{ block.settings.title }}
+                    <i class="fal fa-plus"></i>
+                </div>
+                <div class="item_text h4 m0">
+                    {{ block.settings.text }}
+          {% if block.settings.link-btn-st %}
+              <a href="{{ block.settings.link-btn-st }}" class="item-btn" style="text-decoration: underline;">
+                {{ block.settings.text-btn-st }}
+              </a>
+              {% endif %}
+                </div>             
+            </div>
+          {% endif %} 
+        {% endfor %}
+        </div>
+        {% endif %}
+        {%- if section.settings.buttons_url != blank -%}
+          <div class="landing-btn m26">
+            <a href="{{ section.settings.buttons_url }}" class="Button" data-uw-rm-brl="false">{{ section.settings.buttons_text }} </a>
+          </div>
+        {% endif %}
+        {% if section.settings.orders != blank %}
+          <div class="landing-banner_info-orders">
+            {{ section.settings.orders }}
+          </div>  
+        {% endif %}
+        {% for block in section.blocks %}
+          {% if block.type == 'icons' %}
+            <div class="icons-wrap mt26">
+              <div class="icons-wrap_ins">
+              {% if block.settings.icon != blank %}
+                <div class="icon">
+                  <img src="{{ block.settings.icon | img_url: "medium" }}">
+               </div>  
+              {% endif %}
+            {% if block.settings.icon_title != blank %}
+                <div class="icon_title">
+                  {{ block.settings.icon_title }}
+               </div>  
+              {% endif %}
+            {% if block.settings.icon_subtitle != blank %}
+                <div class="icon_subtitle">
+                  {{ block.settings.icon_subtitle }}
+               </div>  
+              {% endif %}
+            </div>
+              <div class="icons-wrap_ins">
+              {% if block.settings.icon2 != blank %}
+                <div class="icon">
+                  <img src="{{ block.settings.icon2 | img_url: "medium" }}">
+               </div>  
+              {% endif %}
+            {% if block.settings.icon_title2 != blank %}
+                <div class="icon_title">
+                  {{ block.settings.icon_title2 }}
+               </div>  
+              {% endif %}
+            {% if block.settings.icon_subtitle2 != blank %}
+                <div class="icon_subtitle">
+                  {{ block.settings.icon_subtitle2 }}
+               </div>  
+              {% endif %}
+              </div>
+              <div class="icons-wrap_ins">
+             {% if block.settings.icon3 != blank %}
+                <div class="icon">
+                 <img src="{{ block.settings.icon3 | img_url: "medium" }}">
+               </div>  
+              {% endif %}
+            {% if block.settings.icon_title3 != blank %}
+                <div class="icon_title">
+                  {{ block.settings.icon_title3 }}
+               </div>  
+              {% endif %}
+            {% if block.settings.icon_subtitle3 != blank %}
+                <div class="icon_subtitle">
+                  {{ block.settings.icon_subtitle3 }}
+               </div>  
+              {% endif %}
+              </div>
+            </div>  
+          {% endif %}  
+        {% endfor %}
+      </div>  
+    </div> 
+  </div>  
+</div>
+{% schema %}
+  {
+    "name": "Landing banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subtitle"
+      },
+      {
+        "type": "text",
+        "id": "buttons_text",
+        "label": "Button name"
+      },
+      {
+        "type": "url",
+        "id": "buttons_url",
+        "label": "Button link"
+      },
+      {
+        "type": "html",
+        "id": "orders",
+        "label": "Shipping orders"
+      }
+    ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item", 
+      "settings": [
+      {
+        "type": "text",
+        "id": "title", 
+        "label": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "text", 
+        "label": "Text"
+      },
+        {
+        "type": "text",
+        "id": "text-btn-st", 
+        "label": "Link title",
+        "default": "Learn more"
+      },
+        {
+        "type": "url",
+        "id": "link-btn-st", 
+        "label": "Link"
+      }
+      ]
+    },
+    {
+      "type": "icons",
+      "name": "Icon", 
+      "settings": [
+      {
+        "type": "image_picker",
+        "id": "icon", 
+        "label": "Icon"
+      },
+      {
+        "type": "text",
+        "id": "icon_title",
+        "label": "Icon title"
+      },
+      {
+        "type": "text",
+        "id": "icon_subtitle",
+        "label": "Icon subtitle"
+      },  
+      {
+        "type": "image_picker",
+        "id": "icon2", 
+        "label": "Icon"
+      },
+      {
+        "type": "text",
+        "id": "icon_title2",
+        "label": "Icon title"
+      },
+      {
+        "type": "text",
+        "id": "icon_subtitle2",
+        "label": "Icon subtitle"
+      },  
+      {
+        "type": "image_picker",
+        "id": "icon3", 
+        "label": "Icon"
+      },
+      {
+        "type": "text",
+        "id": "icon_title3",
+        "label": "Icon title"
+      },
+      {
+        "type": "text",
+        "id": "icon_subtitle3",
+        "label": "Icon subtitle"
+      } 
+      ]
+    }  
+  ],
+    "presets": [
+    {
+      "name": "Landing banner"
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

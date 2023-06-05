@@ -1,0 +1,18 @@
+{{ 'compare-sugar.css' | asset_url | stylesheet_tag }}
+
+<div class="compare-sugar">
+
+{% section 'compare-sugar-banner' %}  
+<div class="container">
+ 
+
+{% section 'compare-sugar-1' %}
+{% section 'landing-image' %}
+{% section 'compare-sugar-2' %}
+
+  <div class="PageContent Rte">
+    {{ page.content }}
+  </div>
+</div>
+</div>
+{% section 'compare-sugar-footer' %} 

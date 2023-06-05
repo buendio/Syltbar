@@ -1,0 +1,29 @@
+.page-deeper_info {
+  background: rgba(246, 243, 239, 1);
+}
+
+.page-deeper_info-title {
+  font-size: 48px;
+}
+
+.page-deeper_info .button_arrow_border {
+  max-width: 530px;
+  margin: 0 auto;
+}
+
+@media (max-width: 767px) { 
+  .page-deeper_info-title {
+    line-height: normal;
+    font-size: 42px;
+  }
+} 
+
+@media (max-width: 576px) { 
+  .page-deeper_info-title {
+     font-size: 38px;
+  }
+  .page-deeper_info .button_arrow_border {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+} 

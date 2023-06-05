@@ -1,0 +1,184 @@
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}">
+  <head>
+<link rel='preconnect dns-prefetch' href='https://triplewhale-pixel.web.app/' crossorigin />
+<link rel='preconnect dns-prefetch' href='https://api.config-security.com/' crossorigin />
+<script>
+/* >> TriplePixel :: start*/
+~function(W,H,A,L,E,_,B,N){function O(U,T,H,R){void 0===R&&(R=!1),H=new XMLHttpRequest,H.open("GET",U,!0),H.send(null),H.onreadystatechange=function(){4===H.readyState&&200===H.status?(R=H.responseText,U.includes(".txt")?eval(R):N[B]=R):(299<H.status||H.status<200)&&T&&!R&&(R=!0,O(U,T-1))}}if(N=window,!N[H+"sn"]){N[H+"sn"]=1;try{A.setItem(H,1+(0|A.getItem(H)||0)),(E=JSON.parse(A.getItem(H+"U")||"[]")).push(location.href),A.setItem(H+"U",JSON.stringify(E))}catch(e){}A.getItem('"!nC`')||(A=N,A[H]||(L=function(){return Date.now().toString(36)+"_"+Math.random().toString(36)},E=A[H]=function(t,e){return W=L(),(E._q=E._q||[]).push([W,t,e]),W},E.ch=W,B="configSecurityConfModel",N[B]=1,O("//conf.config-security.com/model",0),O("//triplewhale-pixel.web.app/triplefw.txt?",5)))}}("K","TriplePixel",localStorage);
+/* << TriplePixel :: end*/
+</script>
+    {% comment %}
+      {% include 'kiwiSizing' %}
+    {% endcomment %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="">
+    {% if handle contains 'syltbar-wine-club' %}
+    <meta name="robots" content="noindex">
+    {% endif %}
+    <link rel="canonical" href="{{ canonical_url }}">
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | img_url: '32x32' }}">
+    {%- endif -%}
+    {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
+      <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    {%- endunless -%}
+    <title>
+      {{ page_title }}
+      {%- if current_tags %}
+        &ndash; tagged "{{ current_tags | join: ', ' }}
+        "{% endif -%}
+      {%- if current_page != 1 %}
+        &ndash; Page
+        {{ current_page }}
+      {% endif -%}
+      {%- unless page_title contains shop.name %}
+        &ndash;
+        {{ shop.name }}
+      {% endunless -%}
+    </title>
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+    {% render 'meta-tags' %}
+
+    {{ content_for_header }}
+    {% render 'font-awesome' %}
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{{ 'base.css' | asset_url }}">
+    <link rel="stylesheet" href="{{ 'dev.css' | asset_url }}">
+    <link rel="stylesheet" href="{{ 'custom.css' | asset_url }}">
+    {%- if settings.predictive_search_enabled -%}
+      <link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
+    {%- endif -%}
+    <script>
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+      if (Shopify.designMode) {
+        document.documentElement.classList.add('shopify-design-mode');
+      }
+    </script>
+    <!--Jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    {{ 'api.jquery.js' | shopify_asset_url | script_tag }}
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <!-- MagnificPopup css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"/> 
+    <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+    {% comment %}
+      <script type="text/javascript">if(typeof window.hulkappsWishlist === 'undefined') {
+      window.hulkappsWishlist = {};
+      }
+      window.hulkappsWishlist.baseURL = '/apps/advanced-wishlist/api';
+      window.hulkappsWishlist.hasAppBlockSupport = '1';
+      </script>
+    {% endcomment %}
+    {% render 'cusrom-styles' %}
+    <script>
+      var variantStock = {};
+    </script>
+
+   {% if content_for_header contains 'adminBarInjector' %}
+  <script>
+    window.Userback = window.Userback || {};
+    Userback.access_token = '35931|74578|AFkxWbjRMYrfzqs6q6SdU5Qb0';
+    (function(d) {
+        var s = d.createElement('script');s.async = true;
+        s.src = 'https://static.userback.io/widget/v1.js';
+        (d.head || d.body).appendChild(s);
+    })(document);
+</script>
+{% endif %}
+  
+  <script id="sg-js-global-vars">
+                        sgGlobalVars = {{ shop.metafields['sg-cc']['sg-metafield'] | json }};
+                        if(sgGlobalVars) {
+                            sgGlobalVars.cart = {{ cart | json }};
+                            sgGlobalVars.currentProduct = {{ product | json }};
+                            sgGlobalVars.isAdmin = {% if content_for_header contains 'adminBarInjector' or content_for_header contains 'previewBarInjector' %}true{% else %}false{% endif %};
+                        }
+                    </script>
+
+  
+   {% include 'talkable-partial' %}
+   <meta name="facebook-domain-verification" content="ayeut188zlev3zilxss20hfnf3t6ei" />
+
+
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0CQ9JEKDNK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0CQ9JEKDNK');
+</script>
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11017422528"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-11017422528');
+</script>
+
+  
+  
+  </head>
+
+  
+  <body class="{% if settings.sticky_header == true %}stickyheader-ok{% endif %}{% if request.page_type == 'page' %} page page-{{page.id}}{% endif %}{% if request.page_type == 'collection' %} collection collection-{{collection.id}}{% endif %}{% if template.name == 'index' %} homepage{% endif %}{% if template == 'page.dive-deeper' %} homepage{% endif %}{% if request.page_type == 'product' %} product product-{{product.id}}{% endif %}">
+
+    <a class="skip-to-content-link button sr-only" href="#MainContent">
+      {{ "accessibility.skip_to_text" | t }}
+    </a>
+    {% if settings.sticky_header == true %}
+      <div class="header-sticky">
+      {% endif %}
+      {% section 'header' %}
+      {% if settings.sticky_header == true %}
+      </div>
+    {% endif %}
+
+    {% render 'age-check' %}
+
+    <main id="MainContent" class="content-for-layout" role="main" tabindex="-1">
+      {{ content_for_layout }}
+    </main>
+
+    {% section 'newsletter' %}
+    {% section 'footer' %}
+    {%- if template != 'cart' -%}
+      <div id="block_sidebar_cart">
+        {% render 'cart-drawer' %}
+      </div>
+    {%- endif -%}
+
+    <ul hidden>
+      <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}
+      </li>
+    </ul>
+    {% render 'footer-scripts' %}
+    {%- if settings.predictive_search_enabled -%}
+      <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    {% include 'userway-widget' %}
+    
+    <script src="{{ 'mini-cart.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'parallax.min.js' | asset_url }}"></script>
+    <!-- MagnificPopup jquery js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+    <script src="{{ 'custom.js' | asset_url }}"></script>
+  {% render 'quantity-breaks-now', customer: customer, template: template, product: product, cart: cart %}
+
+    <script type="text/javascript" async="" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=R2zkR3"></script>
+   
+        </body>
+</html>

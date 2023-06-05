@@ -1,0 +1,60 @@
+<div class="page_header">
+  <div class="container  height_100 pb68">
+    <div class="row height_100 justify-content-end  align-items-end pb16">
+      <div class="col-auto">
+        {% if section.settings.heading != blank %}
+          <h1 class="color-white">{{ section.settings.heading }}
+          </h1>
+        {% endif %}
+        {% if section.settings.button_link != blank %}
+          <div class="pt26">
+            <a href="{{ section.settings.button_link }}" class="button_arrow_border button_arrow_border_white">{% include "button_arrow", title: section.settings.button_label %}
+            </a>
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+  {% if section.settings.image != blank %}
+    <img src="{{ section.settings.image | img_url: "master" }}" class="desctop">
+  {% endif %}
+  {% assign image= section.settings.image %}
+  {% if section.settings.image_mob != blank %}
+    {% assign image= section.settings.image_mob %}
+  {% endif %}
+  <img src="{{ image | img_url: "master" }}" class="mobile">
+</div>
+{% schema %}
+  {
+    "name": "Page header",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_mob",
+        "label": "Image mobile"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "t:sections.rich-text.blocks.heading.settings.heading.label"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "t:sections.rich-text.blocks.button.settings.button_label.label"
+      }, {
+        "type": "url",
+        "id": "button_link",
+        "label": "t:sections.rich-text.blocks.button.settings.button_link.label"
+      }
+    ]
+  }
+{% endschema %}

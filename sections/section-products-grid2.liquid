@@ -1,0 +1,86 @@
+<div class="shop-products-wrp pt68 pb110 section-{{ section.id }}">
+  <div class="container pt16">
+    <div class="row align-items-center pb26">
+      <div class="col-lg">
+        {% if section.settings.title != blank %}
+          <div class="h2">{{section.settings.title}}
+          </div>
+        {% endif %}
+      </div>
+      <div class="col-lg-auto">
+        {% if section.settings.btnname != blank %}
+          <a href="{{ section.settings.urlbanner }}" class="button_arrow">
+            {{ section.settings.btnname }}
+            <div class="arrow">
+              <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.5 8C0.846821 7.27066 1.18208 6.63248 1.50578 6.08547C1.8526 5.53846 2.18786 5.08262 2.51156 4.71795L2.51153 3.69231L2.51156 3.28205C2.18786 2.89459 1.8526 2.42735 1.50578 1.88034C1.18208 1.33333 0.846821 0.706552 0.5 0H1.71387C3.17052 1.66382 4.69653 2.89459 6.29191 3.69231V4.30769C4.69653 5.08262 3.17052 6.31339 1.71387 8H0.5Z" fill="#A4915C"/>
+              </svg>
+            </div>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="product-grid-slider2 product_shop_slider swiper ">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide">
+            {% render 'card-product',
+                        card_product: block.settings.addproduct,
+                        show_secondary_image: section.settings.show_secondary_image 
+                      %}
+          </div>
+        {% endfor %}
+      </div>
+      <div class="swiper-slider-pagination swiper-pagination swiper-pagination-reviews"></div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Section Product Grid 2",
+    "tag": "section",
+    "class": "product-grid-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "t:sections.section-product-grid.settings.title.label"
+      }, {
+        "type": "checkbox",
+        "id": "show_secondary_image",
+        "default": false,
+        "label": "t:sections.section-product-grid.settings.show_secondary_image.label"
+      }, {
+        "type": "url",
+        "id": "urlbanner",
+        "label": "t:sections.section-bannerimage.settings.urlbanner.label"
+      }, {
+        "type": "text",
+        "id": "btnname",
+        "label": "t:sections.section-bannerimage.settings.btnname.label"
+      }
+    ],
+    "max_blocks": 3,
+    "blocks": [
+      {
+        "type": "product",
+        "name": "t:sections.section-product-grid.settings.add_product.label",
+        "settings": [
+          {
+            "type": "product",
+            "id": "addproduct",
+            "label": "t:sections.section-product-grid.settings.product.label"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Section Product Grid 2",
+        "category": "product"
+      }
+    ]
+  }
+{% endschema %}

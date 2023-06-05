@@ -1,0 +1,39 @@
+<div class="compare-sugar">
+
+<img src="{{ section.settings.image_desk | img_url: "master" }}"  class="banner center" >
+<img src="{{ section.settings.image_mob | img_url: "master" }}"  class="mobile-banner">  
+<div>&nbsp;</div>
+<h3 class="page-heading">{{ section.settings.text }}</h3>
+</div>
+
+
+
+
+{% schema %}
+  {
+    "name": "Compare sugar footer",
+    "settings": [
+       {
+            "type": "image_picker",
+            "id": "image_desk",
+            "label": "Image desktop"
+      },
+      {
+            "type": "image_picker",
+            "id": "image_mob",
+            "label": "Image mobile"
+      },
+      {
+            "type": "text",
+            "id": "text",
+            "label": "Text"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

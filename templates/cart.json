@@ -1,0 +1,31 @@
+{
+  "sections": {
+    "cart-items": {
+      "type": "main-cart-items",
+      "blocks": {
+        "4793beb7-d525-4c58-be0a-e3d0ef9021e5": {
+          "type": "subtotal",
+          "settings": {}
+        },
+        "dd2b4db4-c886-4236-a7ba-6b6c981433fe": {
+          "type": "buttons",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "4793beb7-d525-4c58-be0a-e3d0ef9021e5",
+        "dd2b4db4-c886-4236-a7ba-6b6c981433fe"
+      ],
+      "settings": {
+        "show_cart_note": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "bg_color": "rgba(0,0,0,0)",
+        "sect_class": ""
+      }
+    }
+  },
+  "order": [
+    "cart-items"
+  ]
+}

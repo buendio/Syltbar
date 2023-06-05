@@ -1,0 +1,120 @@
+.image-btn-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 800px;
+}
+
+
+.bannerimage-slider .swiper-slider-button {
+  top: 97%;
+}
+
+.bannerimage-slider .swiper-slider-button.swiper-slider-button-prev {
+  left: 50px;
+}
+
+
+.bannerimage-slider .swiper-slider-button.swiper-slider-button-next {
+    right: 50px;
+}
+
+.image-btn-wrapper .container {
+  position: relative;
+  z-index: 2;
+}
+.image-btn-wrapper img {
+  object-fit: cover;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  -ms-transition-duration: 0.5s;
+  width: 100%;
+  height: 100%;
+}
+.image-btn-wrapper img.mobile {
+  display: none;
+}
+
+.image-btn-wrapper .title { 
+}
+.image-btn-wrapper .subtitle { 
+}
+
+.image-btn-wrapper .button_arrow_border {
+  width:188px;
+}
+
+@media screen and (max-width: 1560px) {
+  .image-btn-wrapper {
+    height: 700px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .image-btn-wrapper {
+    height: 600px;
+  }
+
+  .image-btn-wrapper .title {
+    font-size: 66px;
+  }
+  .image-btn-wrapper .subtitle {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .image-btn-wrapper {
+    height: 550px;
+  }
+  .image-btn-wrapper img.desctop {
+    display: none;
+  }
+  .image-btn-wrapper img.mobile {
+    display: block;
+  }
+  .image-btn-wrapper .title {
+    font-size: 56px;
+  }
+  .image-btn-wrapper .subtitle {
+    font-size: 26px;
+  }
+  .image-btn-wrapper .row {
+    -ms-flex-line-pack: end !important;
+    align-content: flex-end !important;
+  }
+  .image-btn-wrapper__links {
+    padding-top: 26px;
+  }
+  .image-wrap .info {
+    padding-bottom: 0px;
+  }
+}
+@media screen and (max-width: 576px) {
+    .image-btn-wrapper__links {
+        padding-top: 16px;
+      }
+      .image-btn-wrapper .title {
+        font-size: 50px;
+      }
+  .image-btn-wrapper .h1,.image-btn-wrapper .h2 {
+    margin-top: 0;
+    margin-bottom:0;
+  }
+  .image-btn-wrapper .h1 {
+    font-size: 40px;
+  }
+  .image-btn-wrapper .h2 {
+    font-size: 22px;
+  }
+}
+
+

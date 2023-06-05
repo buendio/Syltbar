@@ -1,0 +1,59 @@
+{% if section.settings.text1 != blank %}
+  <div class="page_find_syltbar pt110 pb68">
+    <div class="container ">
+         <div class="center">{{ section.settings.text1 }}</div>
+         <div class="storemapper_block pt26">
+          <div id="storemapper" style="width: 100%;">
+<p>Store Locator is loading from <a href="https://www.storemapper.co">Storemapper</a>...</p>
+</div>
+<script type="text/javascript" data-storemapper-start="2019,05,25" data-storemapper-id="5970">// <![CDATA[
+(function() {var script = document.createElement('script');script.type  = 'text/javascript';script.async = true;script.src = document.location.protocol + '//www.storemapper.co/js/widget.js'; var entry = document.getElementsByTagName('script')[0];entry.parentNode.insertBefore(script, entry);}());
+// ]]></script>
+</div>
+    </div>
+  </div>
+{% endif %}
+
+{% if section.settings.image2 != blank or section.settings.text2 != blank %}
+  <div class="page_find_syltbar_map p110">
+    <div class="container center pb42">
+        <div class="text">{{ section.settings.text2 }}</div>
+        {% if section.settings.image2 != blank %}
+            <div class="image pt42"><img src="{{ section.settings.image2 | img_url: "master" }}"></div>
+        {% endif %} 
+    </div>
+  </div>
+{% endif %}
+
+
+{% schema %}
+  {
+    "name": "Page",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Block 1"
+      },
+      {
+        "type": "html",
+        "id": "text1",
+        "label": "Text"
+      },
+      {
+        "type": "header",
+        "content": "Block 2"
+      },
+      {
+        "type": "html",
+        "id": "text2",
+        "label": "Text"
+      }, {
+        "type": "image_picker",
+        "id": "image2",
+        "label": "Image"
+      }
+    ]
+  }
+{% endschema %}

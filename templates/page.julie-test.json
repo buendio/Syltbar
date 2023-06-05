@@ -1,0 +1,176 @@
+{
+  "sections": {
+    "a763f110-e3ac-4756-9ba6-8e0a66430a8e": {
+      "type": "section-bannerimage",
+      "settings": {
+        "imagebanner": "shopify:\/\/shop_images\/Syltbar09-12-22_25_d9408da2-a3d2-4633-aa07-3e3d4355b34f.jpg",
+        "title": "",
+        "smalltitle": "",
+        "urlbanner": "",
+        "btnname": ""
+      }
+    },
+    "5935d0f4-21f1-4f00-b55c-787c7f78afdc": {
+      "type": "rich-text",
+      "blocks": {
+        "template--14425140232247__5935d0f4-21f1-4f00-b55c-787c7f78afdc-1666878212591cdd91-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Compare SYLTBAR",
+            "heading_size": "h1"
+          }
+        },
+        "template--14425140232247__5935d0f4-21f1-4f00-b55c-787c7f78afdc-1666878212591cdd91-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>SUGAR CONTENT IN WINE<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--14425140232247__5935d0f4-21f1-4f00-b55c-787c7f78afdc-1666878212591cdd91-0",
+        "template--14425140232247__5935d0f4-21f1-4f00-b55c-787c7f78afdc-1666878212591cdd91-1"
+      ],
+      "settings": {
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "bg_color": "",
+        "sect_class": "center"
+      }
+    },
+    "dadcd924-7b66-46e9-b3aa-7f4cef07eb55": {
+      "type": "section-bannerimage",
+      "settings": {
+        "imagebanner": "shopify:\/\/shop_images\/Frame_12640.jpg",
+        "title": "",
+        "smalltitle": "",
+        "urlbanner": "",
+        "btnname": ""
+      }
+    },
+    "765eb211-2b32-4264-b9c4-c48a5595a048": {
+      "type": "image-block",
+      "disabled": true,
+      "settings": {
+        "ico": "shopify:\/\/shop_images\/mr-mrs-all-wine-comparison-chart_Calorie-Comparison-horizontal.jpg",
+        "parallax": true
+      }
+    },
+    "cc1b03a1-159c-4c8d-aec4-69ee76d3092d": {
+      "type": "section-bannerimage",
+      "disabled": true,
+      "settings": {
+        "imagebanner": "shopify:\/\/shop_images\/mr-mrs-all-wine-comparison-chart_Calorie-Comparison-horizontal.jpg",
+        "title": "",
+        "smalltitle": "",
+        "urlbanner": "",
+        "btnname": ""
+      }
+    },
+    "f25123df-14e8-4906-af1d-6165d869a6c3": {
+      "type": "section-bannerimage",
+      "settings": {
+        "imagebanner": "shopify:\/\/shop_images\/Frame_12639.jpg",
+        "title": "",
+        "smalltitle": "",
+        "urlbanner": "",
+        "btnname": ""
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "bg_color": "rgba(0,0,0,0)",
+        "sect_class": "center"
+      }
+    },
+    "aaf3b816-050a-46d4-bd8d-0e7871d726b4": {
+      "type": "section-bannerimage",
+      "settings": {
+        "imagebanner": "shopify:\/\/shop_images\/Syltbar09-12-22_25_ab36974d-14b3-473f-aa96-d11ee428db3e.jpg",
+        "title": "",
+        "smalltitle": "",
+        "urlbanner": "",
+        "btnname": ""
+      }
+    },
+    "979d2a39-3153-4ece-b9e9-2d92d8f95b4f": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Shop Low Sugar Wine",
+        "collection": "sparkling-wines",
+        "products_to_show": 2,
+        "card_format": "6",
+        "card_format_mob": "1",
+        "show_view_all": false,
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "show_rating": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "bg_color": "",
+        "sect_class": ""
+      }
+    },
+    "cf09d79b-d339-4877-8b19-4c0e1f06dad2": {
+      "type": "rich-text",
+      "blocks": {
+        "template--14425140232247__cf09d79b-d339-4877-8b19-4c0e1f06dad2-16668765796eae95c9-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Cheers to a happy, healthy lifestyle.",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "template--14425140232247__cf09d79b-d339-4877-8b19-4c0e1f06dad2-16668765796eae95c9-0"
+      ],
+      "settings": {
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "bg_color": "",
+        "sect_class": "center"
+      }
+    },
+    "f029b908-bfc9-4e06-9d87-332c81306bc7": {
+      "type": "rich-text",
+      "blocks": {
+        "template--14425140232247__f029b908-bfc9-4e06-9d87-332c81306bc7-166687664242bec372-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Be smarter and enjoy life with less calories.",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "template--14425140232247__f029b908-bfc9-4e06-9d87-332c81306bc7-166687664242bec372-0"
+      ],
+      "settings": {
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "bg_color": "",
+        "sect_class": "center"
+      }
+    }
+  },
+  "order": [
+    "a763f110-e3ac-4756-9ba6-8e0a66430a8e",
+    "5935d0f4-21f1-4f00-b55c-787c7f78afdc",
+    "dadcd924-7b66-46e9-b3aa-7f4cef07eb55",
+    "765eb211-2b32-4264-b9c4-c48a5595a048",
+    "cc1b03a1-159c-4c8d-aec4-69ee76d3092d",
+    "f25123df-14e8-4906-af1d-6165d869a6c3",
+    "main",
+    "aaf3b816-050a-46d4-bd8d-0e7871d726b4",
+    "979d2a39-3153-4ece-b9e9-2d92d8f95b4f",
+    "cf09d79b-d339-4877-8b19-4c0e1f06dad2",
+    "f029b908-bfc9-4e06-9d87-332c81306bc7"
+  ]
+}

@@ -1,0 +1,79 @@
+{{ 'landing-info.css' | asset_url | stylesheet_tag }}
+<div class="container center pt68">
+  {%- for block in section.blocks -%} 
+    <div class="landing-info mb42">
+      {% if block.settings.title != blank %}
+        <div class="h5 landing-info_title">
+          {{ block.settings.title}}
+        </div>
+      {% endif %}
+      {% if block.settings.subtitle != blank %}
+        <div class="h2 landing-info_subtitle">
+          {{ block.settings.subtitle}}
+        </div>
+      {% endif %}
+      {% if block.settings.text != blank %}
+        <p class="landing-info_text">
+          {{ block.settings.text}}
+        </p>
+      {% endif %}
+      {%- if block.settings.buttons_url != blank -%}
+        <div class="landing-btn mt26 mb42 center">
+          <a href="{{ block.settings.buttons_url }}" class="Button">{{ block.settings.buttons_text }} </a>
+        </div>
+      {% endif %}
+    </div> 
+  {%- endfor -%}
+</div>  
+
+{% schema %}
+  {
+    "name": "Landing info",
+    "settings": [ 
+    ],
+    "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "html",
+          "id": "subtitle",
+          "label": "Subitle"
+        },
+        {
+          "type": "html",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "buttons_text",
+          "label": "Button name"
+        },
+        {
+          "type": "url",
+          "id": "buttons_url",
+          "label": "Button link"
+         }
+      ]
+    }
+  ],
+    "presets": [
+    {
+      "name": "Landing info"
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

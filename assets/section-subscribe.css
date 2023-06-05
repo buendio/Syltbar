@@ -1,0 +1,45 @@
+
+
+.emailfiled{
+    text-align: right;
+}
+.newsletter-form__field-wrapper input{
+    width:280px;
+    height:48px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    font-size: 14px;
+} 
+.newsletter-form__field-wrapper input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #c1c1c1;
+}
+.newsletter-form__field-wrapper input::-moz-placeholder { /* Firefox 19+ */
+  color: #c1c1c1;
+}
+.newsletter-form__field-wrapper input:-ms-input-placeholder { /* IE 10+ */
+  color: #c1c1c1;
+}
+.newsletter-form__field-wrapper input:-moz-placeholder { /* Firefox 18- */
+  color: #c1c1c1;
+}
+.newsletter-form__message {
+    display: inline-flex;
+    gap: 5px;
+}
+.newsletter-form__message svg{
+    width:16px;
+}
+@media(max-width:991px){
+    .emailfiled, .subscribetext {
+        text-align: center;
+    }
+    .subscribetext {
+        margin-bottom: 10px;
+    }
+}
+@media(max-width:425px){
+    .newsletter-form__field-wrapper input,
+    .newsletter-form__field-wrapper .btn {
+        width:100%;
+    }
+}

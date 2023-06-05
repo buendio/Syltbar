@@ -1,0 +1,58 @@
+{{ 'section-bannerimage.css' | asset_url | stylesheet_tag }}
+<div class="image-btn-wrapper  section-{{ section.id }} ">
+  <div class="container height_100 pb68">
+    <div class="row height_100 align-items-end pb16">
+      <div class="col-md">
+        {% if section.settings.title != blank %}
+          <div class="h1 color-white">{{ section.settings.title }}
+          </div>
+        {% endif %}
+        {% if section.settings.smalltitle != blank %}
+          <div class="h3 mb0 pt10 color-white">{{ section.settings.smalltitle }}
+          </div>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+  {% if section.settings.imagebanner != blank %}
+    <img src="{{ section.settings.imagebanner | img_url: "master" }}" class="desctop">
+  {% endif %}
+  {% assign mob = section.settings.imagebanner %}
+  {% if section.settings.imagebanner_mobile != blank %}
+    {% assign mob = section.settings.imagebanner_mobile %}
+  {% endif %}
+  <img src="{{ mob | img_url: "master" }}" class="mobile">
+</div>
+<style>
+  .image-btn-wrapper .h3 {
+    max-width: 750px;
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Page header",
+    "tag": "section",
+    "class": "banner-image",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "imagebanner",
+        "label": "t:sections.section-bannerimage.settings.imagebanner.label"
+      }, {
+        "type": "image_picker",
+        "id": "imagebanner_mobile",
+        "label": "Image mobile"
+      }, {
+        "type": "text",
+        "id": "title",
+        "label": "t:sections.section-bannerimage.settings.title.label"
+      }, {
+        "type": "html",
+        "id": "smalltitle",
+        "label": "t:sections.section-bannerimage.settings.smalltitle.label"
+      }
+    ]
+  }
+{% endschema %} 

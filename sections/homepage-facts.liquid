@@ -1,0 +1,64 @@
+{{ 'section-facts.css' | asset_url | stylesheet_tag }}
+<div class="facts-wrapper  section-{{ section.id }} ">
+
+  <div class="container height_100 pb110">
+    <div class="row height_100 align-items-end justify-content-end">
+      <div class="col-md-auto">
+        {% if section.settings.title != blank %}
+          <div class="h1 title color-white pb10">{{ section.settings.title }}
+          </div>
+        {% endif %}
+        {% if section.settings.btnname != blank %}
+          <a href="{{ section.settings.urlbanner }}" class="button_arrow_border button_arrow_border_white">{% include "button_arrow", title: section.settings.btnname %}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="parallax-container parallax-container-desctop" data-parallax="scroll" data-position="top" data-bleed="0" data-image-src="https:{{ section.settings.imagebanner | img_url: "master" }}"></div>
+  {% assign mob = section.settings.imagebanner %}
+      {% if section.settings.imagebanner_mobile != blank %}
+          {% assign mob = section.settings.imagebanner_mobile %}
+      {% endif %}
+  <div class="parallax-container parallax-container-mobile" data-parallax="scroll" data-position="top" data-bleed="0" data-image-src="https:{{  mob | img_url: "master" }}"></div>
+
+
+</div>
+
+{% schema %}
+  {
+    "name": "Facts",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "imagebanner",
+        "label": "Image"
+      }, 
+      {
+        "type": "image_picker",
+        "id": "imagebanner_mobile",
+        "label": "Image mobile"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      }, {
+        "type": "url",
+        "id": "urlbanner",
+        "label": "t:sections.section-bannerimage.settings.urlbanner.label"
+      }, {
+        "type": "text",
+        "id": "btnname",
+        "label": "t:sections.section-bannerimage.settings.btnname.label"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Facts"
+      }
+    ]
+  }
+{% endschema %}

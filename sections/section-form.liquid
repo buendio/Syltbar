@@ -1,0 +1,147 @@
+{{ 'section-form.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'inputmask.js' | asset_url }}" ></script>
+{% if section.settings.padding_top != 0 or section.settings.padding_bottom != 0 or section.settings.bg_color != 'rgba(0,0,0,0)' %}
+  {%- style -%} 
+      .section-{{ section.id }} {
+        {% if section.settings.bg_color != 'rgba(0,0,0,0)' %}
+          background-color:{{section.settings.bg_color}};
+        {% endif %}
+        {% if section.settings.padding_top != 0 %}
+          padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+        {% endif %}
+        {% if section.settings.padding_bottom != 0 %}
+          padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+        {% endif %}
+      }
+      @media screen and (min-width: 750px) {
+        .section-{{ section.id }} {
+          {% if section.settings.padding_top != 0 %}
+            padding-top: {{ section.settings.padding_top }}px;
+          {% endif %}
+          {% if section.settings.padding_bottom != 0 %}
+            padding-bottom: {{ section.settings.padding_bottom }}px;
+          {% endif %}
+        }
+      }
+  {%- endstyle -%}
+{% endif %}
+<div class="p42 section-{{ section.id }} {{section.settings.sect_class}}">
+    <div class="container">
+        {%- form 'contact', id: 'ContactForm', class: 'contact-form' -%}
+            {%- if section.settings.title != blank -%}
+                <h2>{{- section.settings.title -}}</h2>
+            {%- endif -%}
+            {% if form.posted_successfully? %} 
+                <div class="form-status form-status--success" tabindex="-1" autofocus>{% render 'icon-success' %} {{ 'templates.contact.form.post_success' | t }}</div>
+            {% endif %}	 
+            {% if form.errors? %}	
+                <div class="form-status form-status--error" tabindex="-1" autofocus>{% render 'icon-error' %} {{ 'templates.contact.form.error_heading' | t }}</div>
+            {% endif %}
+            <div class="d-md-flex justify-content-between formrow">
+                <div class="contact-form__input mb16">
+                    <label for="ContactFormName">
+                        {{ 'templates.contact.form.name' | t }}<sup>*</sup>
+                    </label>
+                    <input type="text" id="ContactFormName" required name="contact[name]">
+                </div>
+                <div class="contact-form__input mb16">
+                    <label for="contactFormEmail">
+                        {{ 'templates.contact.form.email' | t }}<sup>*</sup>
+                    </label>
+                    <input type="email" id="contactFormEmail" required  name="contact[email]"  autocorrect="off" autocapitalize="off">
+                    {%- if form.errors contains 'email' -%}
+                    <small class="contact__field-error" id="ContactForm-email-error">
+                        <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+                        <span class="form__message">{% render 'icon-error' %}{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</span>
+                    </small>
+                    {%- endif -%}
+                </div>
+            </div>
+            <div class="d-sm-flex justify-content-between formrow">
+                <div class="contact-form__input mb16">
+                    <label for="ContactForZip">
+                        {{ 'templates.contact.form.zipcode' | t }}
+                    </label>
+                    <input type="text" id="ContactForZip" placeholder="90001" data-inputmask="'mask': '99999'"  name="contact[zip]">
+                </div>
+                <div class="contact-form__input mb16">
+                    <label for="ContactFormPhone">
+                        {{ 'templates.contact.form.phone' | t }}
+                    </label>
+                    <input type="tel" placeholder="+1 999-999-9999" id="ContactFormPhone" autocomplete="tel" name="contact[Phone]" placeholder="Phone">
+                </div>
+            </div>
+            <div class="contact-form__textarea mb26">
+                <label for="contact-form__textarea">{{ 'templates.contact.form.message' | t }}<sup>*</sup></label>
+                <textarea id="contact-form__textarea" required name="contact[message]"></textarea>
+            </div>
+            <button type="submit" class="btn btn__blue ">{{ 'templates.contact.form.send' | t }}</button>
+        {%- endform -%}
+    </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+		$("input#ContactForZip").inputmask({"mask": "99999"});
+		$("input#ContactFormPhone").inputmask({"mask": "+9 999-999-9999"});
+
+        setTimeout(() => $('.form-status--success').hide(), 10000);
+        setTimeout(() => $('.form-status--error').hide(), 10000);
+
+}); // end DOMContentLoaded
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.contact-form.name",
+  "tag": "section",
+  "class": "section-form",
+   "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "t:sections.contact-form.title.name"
+        },
+        {
+        "type": "header",
+        "content": "t:sections.all.section_head"
+        },
+        {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 0
+        },
+        {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 0
+        },
+        {
+        "type": "color",
+        "id": "bg_color",
+        "label": "t:sections.all.bg_color"
+        },
+        {
+        "type": "text",
+        "id": "sect_class",
+        "label": "t:sections.all.sect_class"
+        }
+   ],
+	"presets": [
+		{
+		"name": "t:sections.contact-form.name",
+		"category": "Form"
+		}
+	]
+}
+{% endschema %}

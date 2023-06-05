@@ -1,0 +1,253 @@
+{% if section.settings.image1 != blank or section.settings.text1 != blank %}
+  <div class="page_white_block page_white_block_reverse p68">
+    <div class="container p16">
+      <div class="row align-items-center">
+        <div class="col-lg-7 col-md-6">
+          {% if section.settings.image1 != blank %}
+            <img src="{{ section.settings.image1 | img_url: "master" }}">
+          {% endif %}
+        </div>
+        <div class="col-lg-5 col-md-6 order-md-first ">
+          <div class="page_bg_block_text p42">
+            {{ section.settings.text1 }}
+          </div>
+          <div class="page_image_full_block_tex-bttn">
+         {% if section.settings.btnname != blank %}<a href="{{ section.settings.urlbanner }}" class="button_arrow_border button_arrow_border_white">{% include "button_arrow", title: section.settings.btnname %}</a>{% endif %} 
+     </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% if section.settings.image2 != blank or section.settings.text2 != blank %}
+  <div class="page_image_full_block">
+    <div class="container">
+      <div class="page_image_full_block_text">
+        {{ section.settings.text2 }}
+   <div class="page_image_full_block_tex-bttn2">
+         {% if section.settings.btnname2 != blank %}<a href="{{ section.settings.urlbanner2 }}" class="button_arrow_border button_arrow_border_white">{% include "button_arrow", title: section.settings.btnname2 %}</a>{% endif %} 
+     </div>
+   </div>
+    </div>
+    {% if section.settings.image2 != blank %}
+      <img src="{{ section.settings.image2 | img_url: "master" }}" class="desctop">
+    {% endif %}
+    {% assign image_mob = section.settings.image2 %}
+    {% if section.settings.image2_mob != blank %}
+      {% assign image_mob = section.settings.image2_mob %}
+    {% endif %}
+    <img src="{{ image_mob | img_url: "master" }}" class="mobile">
+  </div>
+{% endif %}
+
+
+{% if section.settings.image3 != blank or section.settings.text3 != blank %}
+  <div class="page_image_full_block_reverse">
+    <div class="container">
+      <div class="page_image_full_block_text">
+        {{ section.settings.text3 }}
+  <div class="page_image_full_block_tex-bttn3">
+   {% if section.settings.btnname3 != blank %}<a href="{{ section.settings.urlbanner3 }}" class="button_arrow_border button_arrow_border_white">{% include "button_arrow", title: section.settings.btnname3 %}</a>{% endif %}
+  </div>   
+  </div>
+    </div>
+    {% if section.settings.image3 != blank %}
+      <img src="{{ section.settings.image3 | img_url: "master" }}" class="desctop">
+    {% endif %}
+    {% assign image_mob = section.settings.image3 %}
+    {% if section.settings.image3_mob != blank %}
+      {% assign image_mob = section.settings.image3_mob %}
+    {% endif %}
+    <img src="{{ image_mob | img_url: "master" }}" class="mobile">
+  </div>
+{% endif %}
+
+{% if section.settings.image4 != blank or section.settings.text4 != blank %}
+  <div class="page_white_block page_white_block_reverse p68">
+    <div class="container p16">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          {% if section.settings.image4 != blank %}
+            <img src="{{ section.settings.image4 | img_url: "master" }}">
+          {% endif %}
+        </div>
+        <div class="col-md-6 order-md-first ">
+          <div class="page_bg_block_text p42 maxw_530">
+            {{ section.settings.text4 }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+
+
+{% if section.settings.image5 != blank or section.settings.text5 != blank %}
+  <div class="page_black_block p110">
+    <div class="container pt42 pt26">
+      {% if section.settings.text5 != blank %}
+        <div class="page_black_block_wrapper">{{ section.settings.text5 }}
+        </div>
+      {% endif %}
+      {% if section.blocks.size > 0 %}
+        <div class="row  pt26">
+          {% for block in section.blocks %}
+            <div class="col-lg-4 center pt42">
+              {% if block.settings.ico != blank %}
+                <div class="ico">{{ block.settings.ico }}
+                </div>
+              {% endif %}
+              {% if block.settings.title != blank %}
+                <div class="h2 color_gold">{{ block.settings.title }}
+                </div>
+              {% endif %}
+              {% if block.settings.text != blank %}
+                <div class="h4">{{ block.settings.text }}
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+    {% if section.settings.image5 != blank %}
+      <img src="{{ section.settings.image5 | img_url: "master" }}">
+    {% endif %}
+  </div>
+{% endif %}
+
+
+{% schema %}
+  {
+    "name": "Page",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Block 1"
+      },
+      {
+        "type": "image_picker",
+        "id": "image1",
+        "label": "Image"
+      },
+      {
+        "type": "html",
+        "id": "text1",
+        "label": "Text"
+      },
+      {
+        "type": "url",
+        "id": "urlbanner",
+        "label": "Link"
+      },
+      {
+      "type": "text",
+      "id": "btnname",
+      "label": "Button name"
+       },
+      {
+        "type": "header",
+        "content": "Block 2"
+      }, {
+        "type": "image_picker",
+        "id": "image2",
+        "label": "Image"
+      }, {
+        "type": "image_picker",
+        "id": "image2_mob",
+        "label": "Image mobile"
+      }, {
+        "type": "html",
+        "id": "text2",
+        "label": "Text"
+      },   
+      {
+        "type": "url",
+        "id": "urlbanner2",
+        "label": "Link"
+      },
+      {
+      "type": "text",
+      "id": "btnname2",
+      "label": "Button name"
+       },{
+        "type": "header",
+        "content": "Block 3"
+      }, {
+        "type": "image_picker",
+        "id": "image3",
+        "label": "Image"
+      }, {
+        "type": "image_picker",
+        "id": "image3_mob",
+        "label": "Image mobile"
+      }, {
+        "type": "html",
+        "id": "text3",
+        "label": "Text"
+      },{
+        "type": "url",
+        "id": "urlbanner3",
+        "label": "Link"
+      },
+      {
+      "type": "text",
+      "id": "btnname3",
+      "label": "Button name"
+       }, {
+        "type": "header",
+        "content": "Block 4"
+      }, {
+        "type": "image_picker",
+        "id": "image4",
+        "label": "Image"
+      }, {
+        "type": "html",
+        "id": "text4",
+        "label": "Text"
+      }, {
+        "type": "header",
+        "content": "Block 5"
+      }, {
+        "type": "image_picker",
+        "id": "image5",
+        "label": "Image"
+      }, {
+        "type": "html",
+        "id": "text5",
+        "label": "Text"
+      }
+    ],
+    "max_blocks": 3,
+    "blocks": [
+      {
+        "type": "item",
+        "name": "Item",
+        "settings": [
+          {
+            "type": "html",
+            "id": "ico",
+            "label": "Ico"
+          }, {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          }, {
+            "type": "html",
+            "id": "text",
+            "label": "Text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+    {
+      "name": "Page facts"
+    }
+  ]
+  }
+{% endschema %}

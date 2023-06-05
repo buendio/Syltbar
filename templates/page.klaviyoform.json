@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "main": {
+      "type": "klavioform",
+      "settings": {
+        "formcode": "<div class=\"h1 mb26\">Wine club closed<\/div>\nIf you want to join our wine club or you have any questions please contact us at:  <a href=\"mailto:atyourservice@syltbar.com\">atyourservice@syltbar.com<\/a><div class=\"klaviyo-form-VGyvek\"><\/div>",
+        "image": "shopify:\/\/shop_images\/345345.webp"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

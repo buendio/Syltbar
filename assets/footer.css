@@ -1,0 +1,108 @@
+/*******Footer********/
+.footerwrapper {
+  border-top: 1px solid #bababa;
+}
+.footerwrapper .footer__item {
+  width: 24%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.footerwrapper .footer__item.footer__item_logo {
+  width: 40%;
+}
+@media (max-width: 1200px) {
+  .footerwrapper .footer__item {
+    width: 40%;
+  }
+  .footerwrapper .footer__item.footer__item_logo {
+    width: 100%;
+    text-align: center;
+  }
+  .footerwrapper .footer__item.footer__item_logo .footer__item_logo_img {
+    padding-top: 0;
+  }
+}
+@media (max-width: 767px) {
+  .footerwrapper .footer__item {
+    width: 50%;
+  }
+  .footerwrapper .footer__item.footer__item_logo {
+    width: 100%;
+  }
+}
+
+.footer__links_item_menu ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.footer__links_item_menu ul li {
+  display: block;
+}
+.footer__links_item_menu ul li a {
+  font-size: 16px;
+  color: #1f1704;
+  line-height: 1.5;
+}
+.footer__links_item_menu ul li a:hover, .footer__links_item_menu ul li a:focus, .footer__links_item_menu ul li a.active {
+  color: #A4915C;
+}
+
+.footer__item_logo ul {
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  margin: 0;
+  list-style: none;
+}
+.footer__item_logo ul li {
+  display: block;
+}
+.footer__item_logo ul li a {
+  display: inline-block;
+  position: relative;
+  padding-left: 30px;
+  line-height: 1;
+}
+.footer__item_logo ul li a i {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: #a4915c;
+}
+
+.postfooter {
+  border-top: 1px solid #bababa;
+}
+.postfooter .copyright {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #1f1704;
+}
+.postfooter .menu_postfooter ul {
+  padding: 0;
+  margin: 0 -8px;
+  list-style: none;
+}
+.postfooter .menu_postfooter ul li a {
+  font-size: 14px;
+  line-height: 1.5;
+}
+@media (max-width: 767px) {
+  .postfooter .copyright {
+    text-align: center;
+  }
+  .postfooter .menu_postfooter {
+    padding-top: 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer__item_logo svg {
+    width: auto;
+    height: 100px;
+  }
+}

@@ -1,0 +1,50 @@
+{{ 'page-deeper-info.css' | asset_url | stylesheet_tag }}
+<div class="page-deeper_info center">
+  <div class="container p110">
+    {% if section.settings.title != blank %}
+      <div class="h2 page-deeper_info-title">
+        {{ section.settings.title }}
+      </div>
+    {% endif %} 
+    {% if section.settings.subtitle != blank %}
+      <div class="h4 page-deeper_info-subtitle pt16 pb42 m0">
+        {{ section.settings.subtitle }}
+      </div>
+    {% endif %} 
+    {% if section.settings.btnname != blank %}<a href="{{ section.settings.urlbanner }}" class="button_arrow_border mt42">{% include "button_arrow", title: section.settings.btnname %}</a>{% endif %}
+  </div> 
+</div>  
+
+{% schema %}
+  {
+    "name": "Deeper info",
+    "settings": [
+      {
+        "type": "html",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "html",
+        "id": "subtitle",
+        "label": "Subtitle"
+      },    
+      {
+        "type": "url",
+        "id": "urlbanner",
+        "label": "Button link"
+      },
+      {
+        "type": "text",
+        "id": "btnname",
+        "label": "Button name"
+       } 
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

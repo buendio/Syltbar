@@ -1,0 +1,78 @@
+<div class="page_faq">
+  <div class="container">
+     {% if  section.settings.title != blank %}
+      <div class="h2 color_gold">{{ section.settings.title }}</div>
+    {% endif %}
+      <div class="landing-questions_wrp pb16">
+        {% for block in section.blocks %}
+          <div class="faq_block_item">
+            <div class="item_title caps h5 m0">
+              {{ block.settings.title }}
+                <i class="fal fa-plus"></i>
+            </div>
+            <div class="item_text m0">
+              {{ block.settings.text }}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {%- if section.settings.buttons_url != blank -%}
+      <div class="landing-btn center m26">
+        <a href="{{ section.settings.buttons_url }}" class="Button" data-uw-rm-brl="false">{{ section.settings.buttons_text }} </a>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+   {
+    "name": "Landing questions",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+       {
+        "type": "text",
+        "id": "buttons_text",
+        "label": "Button name"
+      },
+      {
+        "type": "url",
+        "id": "buttons_url",
+        "label": "Button link"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "item",
+        "name": "Item",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          }, {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+    {
+      "name": "Landing questions"
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

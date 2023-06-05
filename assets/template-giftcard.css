@@ -1,0 +1,22 @@
+.gift-card__qr-code img {
+  margin: auto;
+}
+
+.gift-card__information {
+  text-align: center;
+}
+.gift-card__information .inner-gift-copy {
+  display: inline-block;
+  position: relative;
+}
+.gift-card__information .inner-gift-copy .gift-card__copy-success {
+  position: absolute;
+  left: -71px;
+  top: -13px;
+  font-size: 12px;
+  width: 200px;
+}
+.gift-card__information input{
+  max-width: 320px;
+  width: 100%;
+}

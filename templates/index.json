@@ -1,0 +1,224 @@
+{
+  "sections": {
+    "1651740722d3c539bb": {
+      "type": "section-bannerimage",
+      "blocks": {
+        "0f28dc34-ce12-44bb-844a-533ebc895377": {
+          "type": "item",
+          "settings": {
+            "imagebanner": "shopify:\/\/shop_images\/Syltbar09-12-22_57.jpg",
+            "imagebanner_mobile": "shopify:\/\/shop_images\/Mrs_SYLTBAR_is_perfect_for_Fall_7184ae30-41cd-4e7e-9ec0-0565d8d09ee3.jpg",
+            "title": "SYLTBAR is",
+            "smalltitle": "Your Happy Healthy Daily Juice",
+            "urlbanner": "shopify:\/\/collections\/all-wines",
+            "btnname": "shop now"
+          }
+        },
+        "8f9d9137-dd68-44b8-9d3f-6fd5d23c350a": {
+          "type": "item",
+          "settings": {
+            "imagebanner": "shopify:\/\/shop_images\/SYLTBAR-home-slide-2-mr.jpg",
+            "imagebanner_mobile": "shopify:\/\/shop_images\/SYLTBAR-home-slide-2-mr-mobile.jpg",
+            "title": "SYLTBAR is",
+            "smalltitle": "Your Happy Healthy Daily Juice",
+            "urlbanner": "shopify:\/\/collections\/sparkling-wines",
+            "btnname": "SHOP NOW"
+          }
+        }
+      },
+      "block_order": [
+        "0f28dc34-ce12-44bb-844a-533ebc895377",
+        "8f9d9137-dd68-44b8-9d3f-6fd5d23c350a"
+      ],
+      "settings": {}
+    },
+    "1663600753aaaad65d": {
+      "type": "section-products-grid",
+      "blocks": {
+        "10c45e36-cf94-4816-8a0c-5171560b603d": {
+          "type": "product",
+          "settings": {
+            "addproduct": "mr-syltbar-premium-prosecco"
+          }
+        },
+        "7d64774f-972e-4fa8-b356-12cdfe43b221": {
+          "type": "product",
+          "settings": {
+            "addproduct": "mrs-syltbar-sparkling-rose"
+          }
+        },
+        "dbc60644-7dac-4834-a3d2-65912da88cc5": {
+          "type": "product",
+          "settings": {
+            "addproduct": "syltbar-tasting-couple-mr-and-mrs-syltbar"
+          }
+        }
+      },
+      "block_order": [
+        "10c45e36-cf94-4816-8a0c-5171560b603d",
+        "7d64774f-972e-4fa8-b356-12cdfe43b221",
+        "dbc60644-7dac-4834-a3d2-65912da88cc5"
+      ],
+      "settings": {
+        "title": "Be Smarter and Enjoy Life with Less Calories",
+        "show_secondary_image": true,
+        "urlbanner": "shopify:\/\/collections\/all-wines",
+        "btnname": "View All"
+      }
+    },
+    "16633438675fdf0d38": {
+      "type": "our-standards",
+      "blocks": {
+        "457476a0-e08f-48da-99db-eb4bc9e74f30": {
+          "type": "item",
+          "settings": {
+            "title": "lab tested",
+            "text": "<p>SYLTBAR has been tested by the University of Miami Diabetes Research Institute. Mr and Mrs are proven to have the lowest sugar content when compared to many other name brands. That's only 2 Smart Points for WW (Weight Watchers), and absolutely Keto-friendly.<\/p>",
+            "text-btn-st": "Learn More",
+            "link-btn-st": "shopify:\/\/pages\/compare-syltbar"
+          }
+        },
+        "17765ec8-c426-4afe-818a-229de90488c5": {
+          "type": "item",
+          "settings": {
+            "title": "100% naturally produced",
+            "text": "<p>The average amount of sulfites in SYLTBAR is around 25ppm, whereas the average amount in commercial wines is about 150ppm! Our winery cares deeply about its integrity. On top of that, we always include the fill date on the bottle back label to show that we are not mass produced.<\/p>",
+            "text-btn-st": "Learn More",
+            "link-btn-st": "shopify:\/\/pages\/facts-difference"
+          }
+        },
+        "75a2f11a-bfbb-4433-8905-92abca1012d9": {
+          "type": "item",
+          "settings": {
+            "title": "Time Honored",
+            "text": "<p>Did you know that the majority of wines are not vegan? SYLTBAR wines remain in the tank long enough to self-stabilize. Many wines use clarifiers like egg white, gelatin, and fish bladder to clear out particles<\/p>",
+            "text-btn-st": "Learn More",
+            "link-btn-st": "shopify:\/\/pages\/facts-difference"
+          }
+        }
+      },
+      "block_order": [
+        "457476a0-e08f-48da-99db-eb4bc9e74f30",
+        "17765ec8-c426-4afe-818a-229de90488c5",
+        "75a2f11a-bfbb-4433-8905-92abca1012d9"
+      ],
+      "settings": {
+        "imagebanner": "shopify:\/\/shop_images\/Rooted_in_Nature.jpg",
+        "title": "Rooted in Nature",
+        "subtitle": ""
+      }
+    },
+    "166349097357b3d356": {
+      "type": "homepage-facts",
+      "settings": {
+        "imagebanner": "shopify:\/\/shop_images\/Syltbar09-12-22_150.jpg",
+        "imagebanner_mobile": "shopify:\/\/shop_images\/SYLTBAR-home-slide-2-mr-mobile.jpg",
+        "title": "Facts Makes<br>a Difference",
+        "urlbanner": "shopify:\/\/pages\/facts-difference",
+        "btnname": "dive-deeper"
+      }
+    },
+    "16634980979ed09f85": {
+      "type": "reviews",
+      "blocks": {
+        "82df614a-de0f-4474-9e92-3204412e7872": {
+          "type": "item",
+          "settings": {
+            "star": "5",
+            "title": "The Best!",
+            "text": "<p>I order this wine by the case. It's absolutely delicious - crisp, not too sweet. I have a bottle in my fridge at all times. I's just a plus that this is lower calories and less sugar than all other Prosecco's!<\/p>",
+            "name": "Nicole W."
+          }
+        },
+        "983493a8-f633-4eb7-96ac-6b2da45bdd34": {
+          "type": "item",
+          "settings": {
+            "star": "5",
+            "title": "Prosecco",
+            "text": "<p>It was a very nice experience. The Prosecco was light and bubbly. I often get a headache after drinking sparkling wine but with Syltbar I did not.<\/p>",
+            "name": "Lynn B."
+          }
+        },
+        "39878795-c965-4d56-b9c0-741f3c6c9170": {
+          "type": "item",
+          "settings": {
+            "star": "5",
+            "title": "My go-to drink!",
+            "text": "<p>Mr. Syltbar is my go-to drink from cocktail hour thru dinner! Its light and refreshing and just a fun happy dry Prosecco that is delightful! I prefer it over Veuve Clicquot which says a lot! The second best part is you never have a headache the next day! Highly recommend! I just wish it was sold in Virginia, but happy when my case arrives at my doorstep! Cheers!<\/p>",
+            "name": "Kathleen R."
+          }
+        },
+        "d86a9664-9b40-495c-a588-c36b30b9df67": {
+          "type": "item",
+          "settings": {
+            "star": "5",
+            "title": "Exceeds all expectations",
+            "text": "<p>It was a fabulous experience in every way . Top notch from customer service to quick shipping and Ofcourse a flawless product<\/p>",
+            "name": ""
+          }
+        }
+      },
+      "block_order": [
+        "82df614a-de0f-4474-9e92-3204412e7872",
+        "983493a8-f633-4eb7-96ac-6b2da45bdd34",
+        "39878795-c965-4d56-b9c0-741f3c6c9170",
+        "d86a9664-9b40-495c-a588-c36b30b9df67"
+      ],
+      "settings": {}
+    },
+    "16642805731859424c": {
+      "type": "section-products-grid2",
+      "blocks": {
+        "bb35463c-180a-4e9d-a715-89c6ce19db7e": {
+          "type": "product",
+          "settings": {
+            "addproduct": "syltbar-cabernet-franc-2019-cashmere-red-wine"
+          }
+        },
+        "7f15bd7c-e2a5-49a0-a30e-5f6b0c820694": {
+          "type": "product",
+          "settings": {
+            "addproduct": "syltbar-friulano-friuli-2019-silk-white-wine"
+          }
+        },
+        "e140e636-19a3-4cf3-9e7d-84de3ee0b65a": {
+          "type": "product",
+          "settings": {
+            "addproduct": "syltbar-pinot-grigio-2020-white-linen-white-wine"
+          }
+        }
+      },
+      "block_order": [
+        "bb35463c-180a-4e9d-a715-89c6ce19db7e",
+        "7f15bd7c-e2a5-49a0-a30e-5f6b0c820694",
+        "e140e636-19a3-4cf3-9e7d-84de3ee0b65a"
+      ],
+      "settings": {
+        "title": "Fine Wines",
+        "show_secondary_image": true,
+        "urlbanner": "shopify:\/\/collections\/fine-wines",
+        "btnname": "View All"
+      }
+    },
+    "16635966726fc68e27": {
+      "type": "about-us",
+      "settings": {
+        "imagebanner": "shopify:\/\/shop_images\/Group_12622.jpg",
+        "subtitle": "About Us",
+        "title": "While You Won't Find This To Be A Typical Wine Story",
+        "text": "<svg width=\"768\" height=\"211\" viewbox=\"0 0 768 211\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M170.616 191.069L175.923 146.69L173.8 145.893C157.614 182.565 137.979 205.685 98.9732 205.685C48.0272 205.685 24.9423 164.495 24.9423 109.486C24.9423 55.0088 48.8232 13.8186 102.157 13.8186C132.141 13.8186 151.511 27.903 172.739 62.4496L174.862 61.9181L169.555 21.5252C156.287 15.9446 131.08 8.50378 104.28 8.50378C41.659 8.50378 0 52.8829 0 109.486C0 166.355 37.4135 211 98.4425 211C132.937 211 162.921 196.65 170.616 191.069Z\" fill=\"#A4915C\"><\/path>\n<path d=\"M203.772 207.014H235.082V206.482C229.51 194.79 228.979 184.16 228.979 166.089V105.234C239.328 94.6045 252.595 89.5554 265.331 89.5554C285.232 89.5554 292.396 103.374 292.396 119.584V166.089C292.396 183.894 291.6 194.79 286.559 206.482V207.014H317.604V206.482C312.032 195.321 311.766 184.691 311.766 166.089V115.332C311.766 91.1499 299.03 76.534 274.618 76.534C256.575 76.534 241.716 85.3035 228.979 100.185V0L197.934 12.4899V13.0214C204.037 18.3363 209.609 26.0428 209.609 39.5957V166.089C209.609 184.426 208.813 195.055 203.772 206.482V207.014Z\" fill=\"#A4915C\"><\/path>\n<path d=\"M448.763 174.859L447.436 174.062C438.149 187.615 422.759 193.992 406.573 193.992C376.589 193.992 359.607 172.733 359.607 136.858V132.34C359.607 130.746 359.607 129.151 359.872 127.822H448.232C450.355 103.108 430.454 76.534 399.674 76.534C368.894 76.534 339.441 103.64 339.441 145.893C339.441 184.16 362.791 211 397.817 211C424.086 211 442.129 195.853 448.763 174.859ZM398.613 81.3174C416.921 81.3174 426.739 93.5416 426.739 120.116V122.242L360.403 123.571C363.853 98.0592 377.385 81.3174 398.613 81.3174Z\" fill=\"#A4915C\"><\/path>\n<path d=\"M574.956 174.859L573.63 174.062C564.343 187.615 548.953 193.992 532.767 193.992C502.783 193.992 485.801 172.733 485.801 136.858V132.34C485.801 130.746 485.801 129.151 486.066 127.822H574.426C576.548 103.108 556.648 76.534 525.868 76.534C495.088 76.534 465.635 103.64 465.635 145.893C465.635 184.16 488.985 211 524.01 211C550.279 211 568.323 195.853 574.956 174.859ZM524.806 81.3174C543.115 81.3174 552.933 93.5416 552.933 120.116V122.242L486.597 123.571C490.046 98.0592 503.579 81.3174 524.806 81.3174Z\" fill=\"#A4915C\"><\/path>\n<path d=\"M597.135 206.482V207.014H628.181V206.482C622.874 194.79 622.343 184.16 622.343 165.824V113.472C629.507 104.171 638.264 96.9962 642.774 96.9962C648.877 96.9962 659.756 99.9194 664.002 102.843H664.798L665.063 76.534C647.02 76.534 634.018 94.8703 622.608 107.626L621.282 107.36V75.2053L591.298 89.2897V89.8212C597.401 95.136 602.973 102.843 602.973 116.395V166.089C602.973 184.426 602.177 195.055 597.135 206.482Z\" fill=\"#A4915C\"><\/path>\n<path d=\"M760.836 107.626L758.182 81.5831C751.018 78.66 739.078 76.534 727.402 76.534C705.114 76.534 682.559 85.3035 682.559 111.081C682.559 135.795 703.522 144.564 721.034 151.474C738.812 158.649 752.079 165.026 752.079 180.971C752.079 193.992 743.058 206.217 723.688 206.217C705.644 206.217 693.173 196.118 682.294 172.733L680.437 173.264L683.09 203.559C692.377 207.545 704.318 211 719.973 211C749.426 211 768 198.244 768 173.796C768 148.019 748.63 139.781 730.321 132.074C712.013 125.165 696.357 118.787 696.357 103.108C696.357 90.3526 706.175 81.3174 721.83 81.3174C734.567 81.3174 747.303 87.1637 758.978 108.157L760.836 107.626Z\" fill=\"#A4915C\"><\/path>\n<\/svg>",
+        "urlbanner": "shopify:\/\/pages\/our-story",
+        "btnname": "read our story"
+      }
+    }
+  },
+  "order": [
+    "1651740722d3c539bb",
+    "1663600753aaaad65d",
+    "16633438675fdf0d38",
+    "166349097357b3d356",
+    "16634980979ed09f85",
+    "16642805731859424c",
+    "16635966726fc68e27"
+  ]
+}

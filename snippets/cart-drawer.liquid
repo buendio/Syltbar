@@ -1,0 +1,101 @@
+{%- capture section_settings -%}
+{
+  "type": "drawer",
+  "itemCount": {{ cart.item_count }},
+  "drawer": true,
+  "hasShippingEstimator": false
+}
+{%- endcapture -%}
+
+<div id="sidebar-cart" class="sidebarcart" aria-hidden="true" data-section-id="cart" data-section-type="cart" data-section-settings='{{ section_settings }}'>
+  <div class="row align-items-center sidebar-cart-header no-gutters">
+      <div class="col"><div class="h4 m0">SHOPPING BAG</div></div>
+      <div class="col-auto">
+        <div class="sidebar-cart-close" onclick="close_sidebar_cart();">
+          <i class="fal fa-times"></i> 
+        </div>
+      </div> 
+  </div>
+
+  <div class="mini-cart-form">
+    
+    <div class="mini-cart__main">  
+      <form class="mini-cart-form-items" action="/checkout" method="POST" novalidate>
+      {%- if cart.item_count == 0 -%}
+        <p class="Cart__Empty h5">YOUR CART IS EMPTY</p>
+      {%- else -%}
+        <div class="Drawer__Container">
+          <input type="hidden" name="attributes[collection_mobile_items_per_row]" value="">
+          <input type="hidden" name="attributes[collection_desktop_items_per_row]" value="">
+
+          {% render 'cart-items' %}
+        </div>
+      {%- endif -%}
+       </form>
+         {%- if cart.item_count != 0 -%} 
+      <div class="cart-notes_wrap">
+       <div class="cart-notes_wrap-text" >Gifting SYLTBAR</div>
+      <details id="Details-CartDrawer" class="cart-notes deatils-slide-animation">
+            <summary>
+              <span class="notes-btn-label underline"> 
+               Edit
+              </span>
+            </summary>
+            <div>
+              <cart-note class="cart__note field">
+                <label class="visually-hidden" for="CartDrawer-Note">{{ 'sections.cart.edit' | t }}</label>
+                
+              </cart-note>
+            </div>
+          </details>
+        <textarea id="CartDrawer-Note" class="text-area mt6 text-area--resize-vertical field__input hidden" name="edit" placeholder="{{ 'sections.cart.edit' | t }}">{{ cart.edit }}</textarea>
+         </div>
+      {%- endif -%}
+    </div>
+
+    {%- unless cart.item_count == 0 -%}
+    {% assign text = 'items' %}
+    {% if cart.item_count == 1 %}
+        {% assign text = 'item' %}
+    {% endif %}
+
+    {% assign count = 0 %}
+{%- for line_item in cart.items -%}
+{% if  line_item.product.metafields.custom.all_sales_final == true %}
+{% assign count = count | plus: 1 %}
+  {% endif %}
+  {% endfor %}  
+ 
+      <div class="mini-cart__footer"> 
+        {% if settings.free_shipping_count != 0 %}
+          <div class="cart_total_shipping_price hidden" data-shipping="{{settings.free_shipping_count }}">
+            <div class="cart_qualifies_free_shipping_html hidden">Your order qualifies for <strong>Free Shipping!</strong></div>
+            <div class="cart_no_qualifies_free_shipping_html hidden">Add <span class="cart_free_shipping fw_600"></span> more bottles to get <strong>Free Shipping!</strong></div>
+          </div>
+        {% endif %}
+        <p class="AgeGate__Subtext">I am 21+</p>
+        <div class="AgeGate__Switcher">
+                  <input type="checkbox" name="age-gate" id="age-gate-input" class="AgeGate__Input" aria-required="true" data-checked="true">
+                  
+                    <label for="age-gate-input" class="Body1 AgeGate__InputLabel">An adult signature (21+) is required for delivery.</label>
+                  
+                </div>
+              <div class="mini-cart__footer_ins">
+            <div class="row align-items-center mini-cart-subtotal pb16">
+      <div class="col "><span class="h5 m0">Subtotal: {{ cart.item_count }} {{ text }}</span></div>
+      <div class="col-auto mini-cart-subtotal-price"><span class="h5 m0">{{ cart.total_price | money_without_trailing_zeros }}</span></div>
+    </div> 
+                
+        <button type="submit" class="mini-cart__checkout gold_button"  disabled="disabled">
+          Checkout
+        </button>    </div>
+    </div>
+    {%- endunless -%}
+  </div>
+</div>
+<div id="sidebar-cart-bg"  onclick="close_sidebar_cart();"></div>
+<script>
+  jQuery('#Details-CartDrawer').on('click', function () { 
+    jQuery('.text-area.field__input').toggleClass('hidden');
+  });  
+</script>

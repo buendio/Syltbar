@@ -1,0 +1,138 @@
+{{ 'page-deeper.css' | asset_url | stylesheet_tag }}
+<div class="page-deeper">
+  {% if section.settings.image1 != blank or section.settings.text1 != blank %}
+    <div class="page_white_block page_white_block_reverse p68">
+      <div class="container p16">
+        <div class="row align-items-center">
+          <div class="col-lg-7 col-md-6 lh0">
+            {% if section.settings.image != blank %}
+              <img src="{{ section.settings.image | img_url: "master" }}">
+            {% endif %}
+          </div>
+          <div class="col-lg-5 col-md-6 order-md-first ">
+            <div class="page_bg_block_text p42">
+              {{ section.settings.text1 }}
+            </div>
+            <div class="page_image_full_block_tex-bttn">
+              {% if section.settings.btnname != blank %}<a href="{{ section.settings.urlbanner }}" class="button_arrow_border button_arrow_border_white">{% include "button_arrow", title: section.settings.btnname %}</a>{% endif %} 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  {% if section.blocks.size > 0 %} 
+      {% for block in section.blocks %}
+        <div class="center pt26">
+          {% if block.settings.title != blank %}
+            <div class="h2 page-deeper_title">{{ block.settings.title }}
+            </div>
+          {% endif %}
+          {% if block.settings.text != blank %}
+            <div class="h4 page-deeper_text pt6 pb68">{{ block.settings.text }}
+            </div>
+          {% endif %}
+        </div>
+        <div class="row page-deeper_ins pt16">
+          <div class="col-md-6 page-deeper_wrap">
+            <div class="page-deeper_wrap-info">
+              {% if block.settings.subtitle1 != blank %}
+                <div class="h2 color-white subtitle">
+                  {{ block.settings.subtitle1 }}
+                </div>
+              {% endif %}
+            </div>  
+            {% if block.settings.image1 != blank %}
+              <div class="page-deeper_wrap-img height_100">          
+                <img src="{{ block.settings.image1 | img_url: "master" }}">
+              </div>    
+            {% endif %} 
+          </div>
+          <div class="col-md-6 page-deeper_wrap">
+            <div class="page-deeper_wrap-info">
+              {% if block.settings.subtitle2 != blank %}
+                <div class="h2 color-white subtitle">
+                  {{ block.settings.subtitle2 }}
+                </div>
+              {% endif %}
+            </div>  
+            {% if block.settings.image2 != blank %}
+              <div class="page-deeper_wrap-img">          
+                <img src="{{ block.settings.image2 | img_url: "master" }}">
+              </div>    
+            {% endif %} 
+          </div> 
+        </div>
+      {% endfor %}  
+  {% endif %}
+ </div>
+{% schema %}
+  {
+    "name": "Page deeper",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "html",
+        "id": "text1",
+        "label": "Text"
+      },
+      {
+        "type": "url",
+        "id": "urlbanner",
+        "label": "Link"
+      },
+      {
+      "type": "text",
+      "id": "btnname",
+      "label": "Button name"
+       }
+    ],
+     "blocks": [
+      {
+        "type": "item",
+        "name": "Item",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          }, {
+            "type": "html",
+            "id": "text",
+            "label": "Text"
+          },
+          {
+            "type": "image_picker",
+            "id": "image1",
+            "label": "Image"
+          },
+                     {
+            "type": "html",
+            "id": "subtitle1",
+            "label": "subtitle"
+          },
+          {
+            "type": "image_picker",
+            "id": "image2",
+            "label": "Image"
+          },
+           {
+            "type": "html",
+            "id": "subtitle2",
+            "label": "subtitle2"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

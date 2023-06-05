@@ -1,0 +1,126 @@
+.about_us {
+  background: #f7f3ef;
+  overflow: hidden;
+}
+.about_us .about_us_image {
+  width: 50vw;
+  max-width: unset;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 50vw;
+  -ms-flex: 0 0 50vw;
+  flex: 0 0 50vw;
+  padding: 0;
+  left: 50%;
+  margin-left: -50vw;
+}
+.about_us .about_us_image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media (max-width: 767px) {
+  .about_us .about_us_image {
+    width: 100%;
+    max-width: unset;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    padding: 0;
+    left: 0;
+    margin-left: 0;
+  }
+}
+.about_us .h6 {
+  color: #a4915c;
+}
+.about_us .about_us_dann {
+  padding-top: 210px;
+  padding-bottom: 380px;
+}
+@media (max-width: 1550px) {
+  .about_us .about_us_dann {
+    padding-top: 150px;
+    padding-bottom: 340px;
+  }
+}
+@media (max-width: 1200px) {
+  .about_us .about_us_dann {
+    padding-top: 100px;
+    padding-bottom: 300px;
+  }
+}
+@media (max-width: 991px) {
+  .about_us .about_us_dann {
+    padding-top: 50px;
+    padding-bottom: 200px;
+  }
+}
+@media (max-width: 767px) {
+  .about_us .about_us_dann {
+    padding-top: 100px;
+    padding-bottom: 50px;
+  }
+}
+@media (max-width: 575px) {
+  .about_us .about_us_dann {
+    padding-top: 60px;
+  }
+}
+.about_us .about_us_dann_wrapper {
+  max-width: 530px;
+}
+@media (max-width: 1200px) {
+  .about_us .about_us_dann_wrapper {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+.about_us .about_us_dann .text {
+  position: absolute;
+  right: 15px;
+  width: 110%;
+  bottom: 110px;
+}
+.about_us .about_us_dann .text svg {
+  width: 100%;
+  height: auto;
+}
+@media (max-width: 1550px) {
+  .about_us .about_us_dann .text {
+    bottom: 70px;
+  }
+}
+@media (max-width: 1200px) {
+  .about_us .about_us_dann .text {
+    width: 100%;
+    bottom: 50px;
+  }
+}
+@media (max-width: 991px) {
+  .about_us .about_us_dann .text {
+    bottom: 30px;
+  }
+}
+@media (max-width: 767px) {
+  .about_us .about_us_dann .text {
+    left: 15px;
+    width: auto;
+    bottom: auto;
+    top: -15%;
+    text-align: center;
+  }
+  .about_us .about_us_dann .text svg {
+    width: 60%;
+  }
+   .about_us_dann_wrapper {
+    text-align: center;
+  }
+}
+@media (max-width: 575px) {
+  .about_us .about_us_dann .text {
+    top: -10%;
+  }
+ 
+}
