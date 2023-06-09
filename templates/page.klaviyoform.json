@@ -1,14 +1,186 @@
 {
   "sections": {
+    "e9dfc79e-b81d-457f-94d9-80f33bb02477": {
+      "type": "rich-text",
+      "blocks": {
+        "template--14517699149879__e9dfc79e-b81d-457f-94d9-80f33bb02477-1685978122d1ca5c06-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Wine club closed",
+            "heading_size": "h1"
+          }
+        },
+        "template--14517699149879__e9dfc79e-b81d-457f-94d9-80f33bb02477-1685978122d1ca5c06-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>If you want to Join our wine club, please register with your information at our waiting list below. If you have any questions please contact us at:<a href=\"mailto:atyourservice@syltbar.com\" target=\"_blank\">atyourservice@syltbar.com<\/a><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--14517699149879__e9dfc79e-b81d-457f-94d9-80f33bb02477-1685978122d1ca5c06-0",
+        "template--14517699149879__e9dfc79e-b81d-457f-94d9-80f33bb02477-1685978122d1ca5c06-1"
+      ],
+      "custom_css": [
+        "h1.h1 {text-transform: capitalize;}"
+      ],
+      "settings": {
+        "full_width": false,
+        "padding_top": 88,
+        "padding_bottom": 60,
+        "bg_color": "",
+        "sect_class": "subscribe-richtext"
+      }
+    },
+    "8c288bb5-a790-4fa4-b07b-bed09f1e447a": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "custom_liquid": "<img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0250\/1027\/4359\/files\/8a5a174b-05fe-4c5e-9fc3-350bacb3b4b5.png?v=1686047414\" class=\"sbs-img\">",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "fe9ac5c0-5c3c-4524-b767-5ae86233fe4c": {
+      "type": "image-block",
+      "disabled": true,
+      "settings": {
+        "parallax": false
+      }
+    },
     "main": {
       "type": "klavioform",
       "settings": {
-        "formcode": "<div class=\"h1 mb26\">Wine club closed<\/div>\nIf you want to join our wine club or you have any questions please contact us at:  <a href=\"mailto:atyourservice@syltbar.com\">atyourservice@syltbar.com<\/a><div class=\"klaviyo-form-VGyvek\"><\/div>",
-        "image": "shopify:\/\/shop_images\/345345.webp"
+        "formcode": "<img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0250\/1027\/4359\/files\/image_83_1.png?v=1686049309\" class=\"sbs-img\">\n<div class=\"klaviyo-form-VGyvek\"><\/div>"
+      }
+    },
+    "c943b8af-4447-445f-8c65-13fd5e59be35": {
+      "type": "text-image",
+      "blocks": {
+        "31cdc473-815a-4b1e-91b7-4f94232f15e6": {
+          "type": "block",
+          "settings": {
+            "title": "Inventory assurance",
+            "text": "We guarantee delivery with your subscription, because we produce 100% natural to avoid additives and that is why you don’t find our Brand everywhere. We produce only in small batches to assure our standard. "
+          }
+        },
+        "78425ae3-4426-46a4-b163-d342e6329dbc": {
+          "type": "block",
+          "settings": {
+            "title": "Personal customer service",
+            "text": "Get personalized customer service from Louise Hudson, who really cares and you know you are speaking to a real person."
+          }
+        },
+        "c6659e75-3fa9-4571-9e7d-03e52017ec93": {
+          "type": "block",
+          "settings": {
+            "title": "Member pricing",
+            "text": "Receive the highest amount of savings with 10% off and complimentary shipping. We never offer deals; we think you should receive your favorite wines whenever you want it. On top of that, you also receive 10% off each additional order and on all other accessories."
+          }
+        },
+        "5453fe04-83e1-4c57-bee8-62ec9269f9f3": {
+          "type": "block",
+          "settings": {
+            "title": "Insider Tips",
+            "text": "Knowledge is key. We are happy to spend our valuable time education \nyou if you have questions or want to scoop on the behind-the-scenes."
+          }
+        },
+        "effc11b6-01fa-4bad-9645-b4269191e77a": {
+          "type": "block",
+          "settings": {
+            "title": "On the house",
+            "text": "Receive one bottle of Mr on the house when you visit our restaurant customer, Nobu, at any of the US locations. Simply send us the receipt from your Nobu dinner and we will refund the amount for one bottle to the credit card you have on file for your membership."
+          }
+        },
+        "c536199f-f934-4b83-95c6-02f9f1a39b85": {
+          "type": "block",
+          "settings": {
+            "title": "Winery visit",
+            "text": "We are always transparent in our wine production, which is why we welcome wine club members to discover our winery, San Simone, when you travel to Italy (Friuli very close to Venice). This visit will also include an authentic Italian lunch."
+          }
+        }
+      },
+      "block_order": [
+        "31cdc473-815a-4b1e-91b7-4f94232f15e6",
+        "78425ae3-4426-46a4-b163-d342e6329dbc",
+        "c6659e75-3fa9-4571-9e7d-03e52017ec93",
+        "5453fe04-83e1-4c57-bee8-62ec9269f9f3",
+        "effc11b6-01fa-4bad-9645-b4269191e77a",
+        "c536199f-f934-4b83-95c6-02f9f1a39b85"
+      ],
+      "settings": {
+        "title": "Our Membership advantages (Aside from 10% off and complimentary shipping)",
+        "img": "shopify:\/\/shop_images\/Wine_Club_Subscription_page_b1.jpg",
+        "text": ""
+      }
+    },
+    "7ea77c5e-6339-4641-88f1-686664c9ed0d": {
+      "type": "section-faq",
+      "blocks": {
+        "b2bf3ff4-e47a-4f01-8171-f434b19cee8a": {
+          "type": "block",
+          "settings": {
+            "question": "What are the benefits to be a Wine Club member?",
+            "answer": "It is a Wine Club subscription where you, as a customer, can sign up to receive your favorite wines shipped to your door, on your own schedule. Simple choose the variety, quantity and frequency (4 or 8 weeks) that fits your needs, with a 12 bottle minimum.  As a member, you always receive 10% savings, including complimentary shipping and other advantages such as:\n<ul style=\"list-style-type: disc;margin-left: 20px\"> \n<li>Inventory Assurance<\/li>\n<li>Personal Customer Service<\/li>\n<li>Complimentary Wine Education<\/li>\n<li>One Mr Bottle at Nobu Restaurant on us (receipt required)<\/li>\n<li>Winery Visit <\/li>\n<\/ul>\nYou can modify, skip or cancel anytime by creating your own wine club online account."
+          }
+        },
+        "9af8d5e8-97eb-4614-84e7-5666c73d4b14": {
+          "type": "block",
+          "settings": {
+            "question": "When I can expect my first Wine club shipment?",
+            "answer": "Every wine club subscription that is placed before 10 am will leave the same day. If the order is placed after 10 am, it will ship the next business day."
+          }
+        },
+        "036b685a-d248-4bf3-9202-8595a78ceeb1": {
+          "type": "block",
+          "settings": {
+            "question": "How I update or change my subscription?",
+            "answer": "Log into your wine club account and navigate to manage your subscription, then edit shipping information, update payment method or change address. You can also let us know your needs and we are always here for you. You can email us anytime at <a href=\"mailto:atyourservice@syltbar.com\">atyourservice@syltbar.com<\/a>."
+          }
+        },
+        "36a39a96-820c-4f40-8602-5f847fc35ff6": {
+          "type": "block",
+          "settings": {
+            "question": "Can I use a the friend refercode to my subscription?",
+            "answer": "Yes, just email us your friend coupon code and we will enter the code for your next subscription delivery."
+          }
+        },
+        "da58ff68-af97-429c-a6a9-49430a0412d4": {
+          "type": "block",
+          "settings": {
+            "question": "Can I skip or cancel my subscription?",
+            "answer": "Yes. Alternatively, we also can pause your wine club subscription for 2 months, or change your wine club subscription from 4 to 8 weeks. When you need support, email <a href=\"mailto:atyourservice@syltbar.com\">atyourservice@syltbar.com<\/a>."
+          }
+        },
+        "0e80f374-21dc-4747-a87a-984c35e7b8e8": {
+          "type": "block",
+          "settings": {
+            "question": "Can I customize my shipment?",
+            "answer": "Yes, anytime. Please let us know by sending an email to <a href=\"mailto:atyourservice@syltbar.com\">atyourservice@syltbar.com<\/a>."
+          }
+        }
+      },
+      "block_order": [
+        "b2bf3ff4-e47a-4f01-8171-f434b19cee8a",
+        "9af8d5e8-97eb-4614-84e7-5666c73d4b14",
+        "036b685a-d248-4bf3-9202-8595a78ceeb1",
+        "36a39a96-820c-4f40-8602-5f847fc35ff6",
+        "da58ff68-af97-429c-a6a9-49430a0412d4",
+        "0e80f374-21dc-4747-a87a-984c35e7b8e8"
+      ],
+      "settings": {
+        "title": "FAQ",
+        "img": "shopify:\/\/shop_images\/Wine_Club_Subscription_page_b2.png"
       }
     }
   },
   "order": [
-    "main"
+    "e9dfc79e-b81d-457f-94d9-80f33bb02477",
+    "8c288bb5-a790-4fa4-b07b-bed09f1e447a",
+    "fe9ac5c0-5c3c-4524-b767-5ae86233fe4c",
+    "main",
+    "c943b8af-4447-445f-8c65-13fd5e59be35",
+    "7ea77c5e-6339-4641-88f1-686664c9ed0d"
   ]
 }

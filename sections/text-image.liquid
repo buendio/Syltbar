@@ -1,0 +1,78 @@
+<div class="container">
+  {%- if section.settings.title != blank -%}
+    <h2 class="text-img__title">{{ section.settings.title }}</h2>
+  {%- endif -%}
+  <div class="text-img__wrp">
+    {%- if section.settings.img != blank -%}
+      <img src="{{ section.settings.img | img_url: 'master' }}" alt="" class="text-img__img">     
+    {%- endif -%}
+    <div class="text-img__block">
+      
+      {%- if section.settings.text != blank -%}
+        <div class="text-img__text">
+          {{ section.settings.text }}
+        </div>
+      {%- endif -%}
+      {%- if section.blocks.size > 0 -%}
+        {%- for block in section.blocks -%}
+          <div class="text-img-item">
+            {%- if block.settings.title != blank -%}
+              <h3>{{ block.settings.title }}</h3>
+            {%- endif -%}
+            {%- if block.settings.text != blank -%}
+              <p>{{ block.settings.text }}</p>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+  "name": "Text with Image",
+  "class": "text-img",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "image_picker",
+      "id": "img",
+      "label": "Img"
+    },
+    {
+      "type": "liquid",
+      "id": "text",
+      "label": "Text"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Block",
+      "type": "block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text with Image"
+    }
+  ]
+}  
+{% endschema %}

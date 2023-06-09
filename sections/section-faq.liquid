@@ -1,0 +1,89 @@
+<div class="container">
+  {%- if section.settings.title != blank -%}
+    <h2 class="faq-subscribe__title">{{ section.settings.title }} </h2>
+  {%- endif -%}
+  <div class="faq-subscribe__wrp">
+    <div class="faq-content">
+      
+      {%- for block in section.blocks -%}
+        {%- if block.settings.question != blank -%}
+          <div class="faq__wr">
+            <div class="faq__content">
+              <div class="faq__question">
+                <span class="">{{- block.settings.question -}}</span>
+                <svg width="11" height="7" viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 1L5.5 5.5L10 1" stroke="#A4915C"/>
+                </svg>                  
+              </div>
+              {%- if block.settings.answer != blank -%}
+                <div class="faq__answer">{{ block.settings.answer }}</div>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    {%- if section.settings.img != blank -%}
+      <img src="{{ section.settings.img | img_url: 'master' }}" alt="" class="faq-subscribe__img">
+    {%- endif -%}
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    $('.faq__question').on('click', function () {
+      if (!$(this).hasClass('active')) {
+        $(this).next().slideDown()
+        $('.faq__question.active').next().slideUp()
+        $('.faq__question.active').removeClass('active')
+        $(this).addClass('active')
+      } else {
+        $(this).removeClass('active')
+        $(this).next().slideUp()
+      }
+    })
+  })
+</script>
+
+{% schema %}
+  {
+  "name": "Faq Subscribe",
+  "class": "faq-subscribe",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "image_picker",
+      "id": "img",
+      "label": "Img"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Block",
+      "type": "block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question"
+        },
+        {
+          "type": "html",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Faq Subscribe"
+    }
+  ]
+}  
+{% endschema %}
