@@ -256,6 +256,13 @@
         "title": "Sparkling  Wine Sugar Comparison"
       }
     },
+    "768a23f5-b6db-429d-a5b8-611a6e8cc7b1": {
+      "type": "image-block",
+      "settings": {
+        "ico": "shopify:\/\/shop_images\/Frame_12687_ac5de1c2-d819-4f4f-83cd-4ba33c2004a7.jpg",
+        "parallax": false
+      }
+    },
     "322d693c-4aa0-4389-ab6a-e0aeea738354": {
       "type": "compare-sugar-2",
       "blocks": {
@@ -394,6 +401,25 @@
         "padding_top": 40,
         "padding_bottom": 52
       }
+    },
+    "c88f9159-11b4-41d1-b3e1-0b128ee8839e": {
+      "type": "section-bannerimage",
+      "blocks": {
+        "55f2f06c-828f-4e84-8c50-f7ccb99815ce": {
+          "type": "item",
+          "settings": {
+            "imagebanner": "shopify:\/\/shop_images\/Frame_12687_ac5de1c2-d819-4f4f-83cd-4ba33c2004a7.jpg",
+            "title": "",
+            "smalltitle": "",
+            "urlbanner": "",
+            "btnname": ""
+          }
+        }
+      },
+      "block_order": [
+        "55f2f06c-828f-4e84-8c50-f7ccb99815ce"
+      ],
+      "settings": {}
     }
   },
   "order": [
@@ -403,10 +429,12 @@
     "16643572272737dfbe",
     "1664359701d3165bd5",
     "ffb6095e-bfa3-4401-8d6b-d647a6ec96f6",
+    "768a23f5-b6db-429d-a5b8-611a6e8cc7b1",
     "322d693c-4aa0-4389-ab6a-e0aeea738354",
     "165610346027b6f4e4",
     "99375763-22a1-41a3-a105-aea1bf8eb127",
     "166688689553eeeff7",
-    "514ad0ae-dde1-4b76-bd1c-a7e9374541fb"
+    "514ad0ae-dde1-4b76-bd1c-a7e9374541fb",
+    "c88f9159-11b4-41d1-b3e1-0b128ee8839e"
   ]
 }

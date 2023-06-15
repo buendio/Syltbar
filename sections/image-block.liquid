@@ -1,6 +1,12 @@
 {% if section.settings.ico != blank %}
   {{ 'image-block.css' | asset_url | stylesheet_tag }}
-  <div class="image-block {% if section.settings.parallax == true %} parallax-container parallax-container-desctop {% endif %}" {% if section.settings.parallax == true %} data-parallax="scroll"data-position="top"data-bleed="0"data-image-src="https:{{ section.settings.ico | img_url: "master" }}"
+  <div
+    class="image-block {% if section.settings.parallax == true %} parallax-container parallax-container-desctop {% endif %} {{section.settings.class}}"
+    {% if section.settings.parallax == true %}
+    data-parallax="scroll"
+    data-position="top"
+    data-bleed="0"
+    data-image-src="https:{{ section.settings.ico | img_url: "master" }}"
     {% endif %}>
     <img src="{{ section.settings.ico | img_url: "master" }}">
   </div>
@@ -15,6 +21,10 @@
         "type": "image_picker",
         "id": "ico",
         "label": "Ico"
+      }, {
+        "type": "text",
+        "id": "class",
+        "label": "Custom Class"
       }, {
         "type": "checkbox",
         "id": "parallax",
